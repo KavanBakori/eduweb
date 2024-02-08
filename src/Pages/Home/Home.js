@@ -15,11 +15,9 @@ function Home() {
       <Hero />
       <Category />
       <About />
-      <Cources></Cources>
+      <Cources />
       <State />
       <Blog />
-      
-      
       <Footer />
     </>
   )
