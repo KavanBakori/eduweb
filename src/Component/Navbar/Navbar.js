@@ -7,15 +7,15 @@ const Header = () => {
       <div className="container">
 
         <a href="#" className="logo">
-          <img src="images/logo.svg" width="162" height="50" alt="EduWeb logo" />
+          <img src="images/anilearn2.png" style={{filter:'invert(100%)'}} width="232" height="50" alt="EduWeb logo" />
         </a>
 
         <nav className="navbar" data-navbar>
 
           <div className="wrapper">
-            <a href="#" className="logo">
-              <img src="images/logo.svg" width="162" height="50" alt="EduWeb logo" />
-            </a>
+            {/* <a href="#" className="logo">
+              <img src="images/anilearn2.png" width="162" height="50" alt="EduWeb logo" />
+            </a> */}
 
             <button className="nav-close-btn" aria-label="close menu" data-nav-toggler>
               <ion-icon name="close-outline" aria-hidden="true"></ion-icon>

@@ -12,7 +12,7 @@ function Footer  () {
     <div class="footer-brand">
 
       <a href="#" class="logo">
-        <img src="images/logo-light.svg" width="162" height="50" alt="EduWeb logo"/>
+        <img src="images/anilearn.png" width="272" height="50" alt="EduWeb logo"/>
       </a>
 
       <p class="footer-brand-text">
