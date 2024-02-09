@@ -1,7 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Navbar.css';
 
 const Header = () => {
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+
   return (
     <header className="header" data-header>
       <div className="container">
@@ -24,7 +30,7 @@ const Header = () => {
 
           <ul className="navbar-list">
             <li className="navbar-item" style={{ color: 'black' }}>
-              <a href="#home"  className="navbar-link" data-nav-link>Home</a>
+              <a href="#home" className="navbar-link" data-nav-link>Home</a>
             </li>
 
             <li className="navbar-item">
@@ -49,7 +55,7 @@ const Header = () => {
 
         <div className="header-actions">
 
-          <button className="header-action-btn  " aria-label="toggle search" title="Search">
+          <button className="header-action-btn" aria-label="toggle search" title="Search">
             <ion-icon name="search-outline" aria-hidden="true"></ion-icon>
           </button>
 
@@ -59,18 +65,24 @@ const Header = () => {
             <span className="btn-badge">0</span>
           </button>
 
-          <a href="#" className="btn has-before">
+          <a href="/login" className="btn has-before">
             <span className="span">Try for free</span>
-
             <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
           </a>
-
-          <button className="header-action-btn" aria-label="open menu" data-nav-toggler>
-            <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
-          </button>
-
+          <div className="dropdown">
+            <button className="dropdown-btn" onClick={toggleDropdown}>
+              <img src='/images/user_profile_icon.png' alt='user_profile' width={'30px'} height={''}></img>
+            </button>
+            {isDropdownOpen && (
+              <div className="dropdown-content">
+                <a href="/profile">My Profile</a>
+                <a href="/profile">My Profile</a>
+                <a href="/profile">My Profile</a>
+                {/* Add more dropdown items here */}
+              </div>
+            )}
+          </div>
         </div>
-
         <div className="overlay" data-nav-toggler data-overlay></div>
 
       </div>
