@@ -16,8 +16,7 @@ function Footer  () {
       </a>
 
       <p class="footer-brand-text">
-        Lorem ipsum dolor amet consecto adi pisicing elit sed eiusm tempor incidid unt labore dolore.
-      </p>
+      Unlock the Power of Visual Learning with AniLearn      </p>
 
       <div class="wrapper">
         <span class="span">Add:</span>
@@ -28,13 +27,13 @@ function Footer  () {
       <div class="wrapper">
         <span class="span">Call:</span>
 
-        <a href="tel:+011234567890" class="footer-link">+01 123 4567 890</a>
+        <a href="tel:+011234567890" class="footer-link">+91 --- ---- ---</a>
       </div>
 
       <div class="wrapper">
         <span class="span">Email:</span>
 
-        <a href="mailto:info@eduweb.com" class="footer-link">info@eduweb.com</a>
+        <a href="mailto:info@eduweb.com" class="footer-link">anylearn@eduweb.com</a>
       </div>
 
     </div>
@@ -83,10 +82,6 @@ function Footer  () {
 
       <li>
         <a href="#" class="footer-link">Gallery</a>
-      </li>
-
-      <li>
-        <a href="#" class="footer-link">News & Articles</a>
       </li>
 
       <li>
