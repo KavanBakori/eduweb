@@ -31,7 +31,7 @@ function Footer  () {
       <div class="wrapper">
         <span class="span">Email:</span>
 
-        <a href="mailto:info@eduweb.com" class="footer-link">info@eduweb.com</a>
+        <a href="mailto:info@eduweb.com" class="footer-link">anylearn@eduweb.com</a>
       </div>
 
     </div>
@@ -80,10 +80,6 @@ function Footer  () {
 
       <li>
         <a href="#" class="footer-link">Gallery</a>
-      </li>
-
-      <li>
-        <a href="#" class="footer-link">News & Articles</a>
       </li>
 
       <li>

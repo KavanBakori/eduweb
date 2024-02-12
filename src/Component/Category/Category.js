@@ -8,16 +8,20 @@ function CategorySection() {
                 <div className="container">
                     <p className="section-subtitle">Categories</p>
                     <h2 className="h2 section-title">
-                        Online <span className="span">Classes</span> For Remote Learning.
+                        Online<span className="span">Visual</span> Learning classes for remote Learning.
                     </h2>
                     <p className="section-text">
-                        Consectetur adipiscing elit sed do eiusmod tempor.
+                       search for cources and emerging topics
                     </p>
                     <ul className="grid-list">
                         <li>
                             <div className="category-card" style={{ backgroundColor: 'hsl(170, 75%, 91%)' }}>
                                 <div className="card-icon" style={{ backgroundColor: 'hsl(170, 75%, 81%)' }}>
+<<<<<<< HEAD
                                     <img src="images/app-development.png" width="40" height="40" loading="lazy" alt="Online Degree Programs" className="img" />
+=======
+                                    <img src="/images/category-1.svg" width="40" height="40" loading="lazy" alt="Online Degree Programs" className="img" />
+>>>>>>> 44e1a3ec77eeb1096c6887716aa14c8842050bf1
                                 </div>
                                 <h3 className="h3">
                                     <a href="#" className="card-title">Development</a>
@@ -25,8 +29,13 @@ function CategorySection() {
                                 {/* <p className="card-text">
                                     Lorem ipsum dolor consec tur elit adicing sed umod tempor.
                                 </p> */}
+<<<<<<< HEAD
                                 <br />
                                 <span className="card-badge" style={{ backgroundColor: 'hsl(170, 75%, 81%)', color: 'hsl(170, 75%, 41%)' }}>7 Courses</span>
+=======
+                                <br/>
+                                <span className="card-badge" style={{ backgroundColor: 'hsl(170, 75%, 81%)', color: 'hsl(170, 75%, 41%)' }}>0 Courses</span>
+>>>>>>> 44e1a3ec77eeb1096c6887716aa14c8842050bf1
                             </div>
                         </li>
                         <li>
@@ -40,8 +49,13 @@ function CategorySection() {
                                 {/* <p className="card-text">
                                     Lorem ipsum dolor consec tur elit adicing sed umod tempor.
                                 </p> */}
+<<<<<<< HEAD
                                 <br />
                                 <span className="card-badge" style={{ backgroundColor: 'hsl(351, 83%, 85%)', color: 'hsl(351, 83%, 61%)' }}>4 Courses</span>
+=======
+                                <br/>
+                                <span className="card-badge" style={{ backgroundColor: 'hsl(351, 83%, 85%)', color: 'hsl(351, 83%, 61%)' }}>0 Courses</span>
+>>>>>>> 44e1a3ec77eeb1096c6887716aa14c8842050bf1
                             </div>
                         </li>
                         <li>
@@ -55,8 +69,13 @@ function CategorySection() {
                                 {/* <p className="card-text">
                                     Lorem ipsum dolor consec tur elit adicing sed umod tempor.
                                 </p> */}
+<<<<<<< HEAD
                                 <br />
                                 <span className="card-badge" style={{ backgroundColor: 'hsl(229, 75%, 85%)', color: 'hsl(229, 75%, 61%)' }}>8 Courses</span>
+=======
+                                <br/>
+                                <span className="card-badge" style={{ backgroundColor: 'hsl(229, 75%, 85%)', color: 'hsl(229, 75%, 61%)' }}>0 Courses</span>
+>>>>>>> 44e1a3ec77eeb1096c6887716aa14c8842050bf1
                             </div>
                         </li>
                         <li>
@@ -70,8 +89,13 @@ function CategorySection() {
                                 {/* <p className="card-text">
                                     Lorem ipsum dolor consec tur elit adicing sed umod tempor.
                                 </p> */}
+<<<<<<< HEAD
                                 <br />
                                 <span className="card-badge" style={{ backgroundColor: 'hsl(42, 94%, 85%)', color: 'hsl(42, 94%, 51%)' }}>8 Courses</span>
+=======
+                                <br/>
+                                <span className="card-badge" style={{ backgroundColor: 'hsl(42, 94%, 85%)', color: 'hsl(42, 94%, 51%)' }}>0 Courses</span>
+>>>>>>> 44e1a3ec77eeb1096c6887716aa14c8842050bf1
                             </div>
                         </li>
                     </ul>
