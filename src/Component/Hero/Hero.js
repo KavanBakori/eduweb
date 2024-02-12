@@ -10,15 +10,15 @@ const Hero = () => {
         <div className="hero-content">
 
           <h1 className="h1 section-title">
-            The Best Program to <span className="span">Enroll</span> for Exchange
+            Unlock the Power of <span className="span"> Visual Learning</span>  with AniLearn
           </h1>
 
           <p className="hero-text">
-            Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit.
+           Engaging animations, interactive visuals, personalized pacing for better learning.
           </p>
 
           <a href="#" className="btn has-before">
-            <span className="span">Find courses</span>
+            <span className="span">Find Cources</span>
 
             <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
           </a>
@@ -35,7 +35,7 @@ const Hero = () => {
             <img src="/images/hero-banner-2.jpg" width="240" height="370" alt="hero banner" className="img-cover" />
           </div>
 
-          <img src="/images/hero-shape-1.svg" width="380" height="190" alt="" className="shape hero-shape-1" />
+          {/* <img src="/images/hero-shape-1.svg" width="380" height="190" alt="" className="shape hero-shape-1" /> */}
 
           <img src="/images/hero-shape-2.png" width="622" height="551" alt="" className="shape hero-shape-2" />
 
