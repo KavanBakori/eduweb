@@ -16,18 +16,16 @@ function Footer  () {
       </a>
 
       <p class="footer-brand-text">
-      Unlock the Power of Visual Learning with AniLearn      </p>
+      Animation Meets Education. Embrace the future of learning, where educators weave magic into lessons, and students thrive in an immersive visual learning environment.
+      </p>
 
-      <div class="wrapper">
-        <span class="span">Add:</span>
-
-        <address class="address">70-80 Upper St Norwich NR2</address>
-      </div>
+     
 
       <div class="wrapper">
         <span class="span">Call:</span>
 
-        <a href="tel:+011234567890" class="footer-link">+91 --- ---- ---</a>
+        <a href="" class="footer-link">9265624142
+        </a>
       </div>
 
       <div class="wrapper">

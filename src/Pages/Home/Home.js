@@ -8,9 +8,11 @@ import Blog from '../../Component/Blog/Blog';
 import About from '../../Component/About/About';
 import Cources from '../../Component/Cources/Cources';
 
+
 function Home() {
   return (
     <>
+
       <Navbar />
       <Hero />
       <Category />
