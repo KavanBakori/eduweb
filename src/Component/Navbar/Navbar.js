@@ -60,7 +60,7 @@ const Header = () => {
           </button>
 
           <a href="#" className="btn has-before">
-            <span className="span">Try for free</span>
+            <span className="span">SignUp/Login</span>
 
             <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
           </a>
