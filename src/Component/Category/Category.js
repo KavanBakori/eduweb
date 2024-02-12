@@ -17,56 +17,60 @@ function CategorySection() {
                         <li>
                             <div className="category-card" style={{ backgroundColor: 'hsl(170, 75%, 91%)' }}>
                                 <div className="card-icon" style={{ backgroundColor: 'hsl(170, 75%, 81%)' }}>
-                                    <img src="images/category-1.svg" width="40" height="40" loading="lazy" alt="Online Degree Programs" className="img" />
+                                    <img src="images/app-development.png" width="40" height="40" loading="lazy" alt="Online Degree Programs" className="img" />
                                 </div>
                                 <h3 className="h3">
-                                    <a href="#" className="card-title">Online Degree Programs</a>
+                                    <a href="#" className="card-title">Development</a>
                                 </h3>
-                                <p className="card-text">
+                                {/* <p className="card-text">
                                     Lorem ipsum dolor consec tur elit adicing sed umod tempor.
-                                </p>
+                                </p> */}
+                                <br />
                                 <span className="card-badge" style={{ backgroundColor: 'hsl(170, 75%, 81%)', color: 'hsl(170, 75%, 41%)' }}>7 Courses</span>
                             </div>
                         </li>
                         <li>
                             <div className="category-card" style={{ backgroundColor: 'hsl(351, 83%, 91%)' }}>
                                 <div className="card-icon" style={{ backgroundColor: 'hsl(351, 83%, 81%)' }}>
-                                    <img src="images/category-2.svg" width="40" height="40" loading="lazy" alt="Non-Degree Programs" className="img" />
+                                    <img src="images/cyber-security.png" width="40" height="40" loading="lazy" alt="Non-Degree Programs" className="img" />
                                 </div>
                                 <h3 className="h3">
-                                    <a href="#" className="card-title">Non-Degree Programs</a>
+                                    <a href="#" className="card-title">Cyber Security</a>
                                 </h3>
-                                <p className="card-text">
+                                {/* <p className="card-text">
                                     Lorem ipsum dolor consec tur elit adicing sed umod tempor.
-                                </p>
+                                </p> */}
+                                <br />
                                 <span className="card-badge" style={{ backgroundColor: 'hsl(351, 83%, 85%)', color: 'hsl(351, 83%, 61%)' }}>4 Courses</span>
                             </div>
                         </li>
                         <li>
                             <div className="category-card" style={{ backgroundColor: 'hsl(229, 75%, 91%)' }}>
                                 <div className="card-icon" style={{ backgroundColor: 'hsl(229, 75%, 81%)' }} >
-                                    <img src="images/category-3.svg" width="40" height="40" loading="lazy" alt="Off-Campus Programs" className="img" />
+                                    <img src="images/infinity.png" width="40" height="40" loading="lazy" alt="Off-Campus Programs" className="img" />
                                 </div>
                                 <h3 className="h3">
-                                    <a href="#" className="card-title">Off-Campus Programs</a>
+                                    <a href="#" className="card-title">Devops</a>
                                 </h3>
-                                <p className="card-text">
+                                {/* <p className="card-text">
                                     Lorem ipsum dolor consec tur elit adicing sed umod tempor.
-                                </p>
+                                </p> */}
+                                <br />
                                 <span className="card-badge" style={{ backgroundColor: 'hsl(229, 75%, 85%)', color: 'hsl(229, 75%, 61%)' }}>8 Courses</span>
                             </div>
                         </li>
                         <li>
                             <div className="category-card" style={{ backgroundColor: 'hsl(42, 94%, 91%)' }}>
                                 <div className="card-icon" style={{ backgroundColor: 'hsl(42, 94%, 81%)' }}>
-                                    <img src="images/category-4.svg" width="40" height="40" loading="lazy" alt="Hybrid Distance Programs" className="img" />
+                                    <img src="images/game-development.png" width="40" height="40" loading="lazy" alt="Hybrid Distance Programs" className="img" />
                                 </div>
                                 <h3 className="h3">
-                                    <a href="#" className="card-title">Hybrid Distance Programs</a>
+                                    <a href="#" className="card-title">Game Development</a>
                                 </h3>
-                                <p className="card-text">
+                                {/* <p className="card-text">
                                     Lorem ipsum dolor consec tur elit adicing sed umod tempor.
-                                </p>
+                                </p> */}
+                                <br />
                                 <span className="card-badge" style={{ backgroundColor: 'hsl(42, 94%, 85%)', color: 'hsl(42, 94%, 51%)' }}>8 Courses</span>
                             </div>
                         </li>
