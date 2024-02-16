@@ -6,8 +6,8 @@ function BlogSection() {
     <section className="section blog has-bg-image" id="blog" aria-label="blog"
       style={{ backgroundImage: `url('images/blog-bg.svg')` }}>
       <div className="container">
-        <p className="section-subtitle">Latest Articles</p>
-        <h2 className="h2 section-title">Get News With Eduweb</h2>
+        <p className="section-subtitle">Latest Videos</p>
+        <h2 className="h2 section-title">Get updated With AniLearn</h2>
         <ul className="grid-list">
           <li>
             <div className="blog-card">
@@ -21,7 +21,7 @@ function BlogSection() {
                 </a>
                 <a href="#" className="card-subtitle">Online</a>
                 <h3 className="h3">
-                  <a href="#" className="card-title">Become A Better Blogger: Content Planning</a>
+                  <a href="#" className="card-title">Learn complete React.JS in just 6 hours!</a>
                 </h3>
                 <ul className="card-meta-list">
                   <li className="card-meta-item">
@@ -33,9 +33,9 @@ function BlogSection() {
                     <span className="span">Com 09</span>
                   </li>
                 </ul>
-                <p className="card-text">
+                {/* <p className="card-text">
                   Lorem Ipsum Dolor Sit Amet Cons Tetur Adipisicing Sed.
-                </p>
+                </p> */}
               </div>
             </div>
           </li>
@@ -56,7 +56,7 @@ function BlogSection() {
               <a href="#" className="card-subtitle">Online</a>
 
               <h3 className="h3">
-                <a href="#" className="card-title">Become A Better Blogger: Content Planning</a>
+                <a href="#" className="card-title">Learn complete Docker in just 6 hours!</a>
               </h3>
 
               <ul className="card-meta-list">
@@ -75,9 +75,9 @@ function BlogSection() {
 
               </ul>
 
-              <p className="card-text">
+              {/* <p className="card-text">
                 Lorem Ipsum Dolor Sit Amet Cons Tetur Adipisicing Sed.
-              </p>
+              </p> */}
 
             </div>
 
@@ -101,7 +101,7 @@ function BlogSection() {
               <a href="#" className="card-subtitle">Online</a>
 
               <h3 className="h3">
-                <a href="#" className="card-title">Become A Better Blogger: Content Planning</a>
+                <a href="#" className="card-title">Learn complete MongoDB in just 6 hours!</a>
               </h3>
 
               <ul className="card-meta-list">
@@ -120,9 +120,9 @@ function BlogSection() {
 
               </ul>
 
-              <p className="card-text">
+              {/* <p className="card-text">
                 Lorem Ipsum Dolor Sit Amet Cons Tetur Adipisicing Sed.
-              </p>
+              </p> */}
 
             </div>
 

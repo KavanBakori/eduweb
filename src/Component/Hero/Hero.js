@@ -17,7 +17,7 @@ const Hero = () => {
            Engaging animations, interactive visuals, personalized pacing for better learning.
           </p>
 
-          <a href="#" className="btn has-before">
+          <a href="#courses" className="btn has-before">
             <span className="span">Find Cources</span>
 
             <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>

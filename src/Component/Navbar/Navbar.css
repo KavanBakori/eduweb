@@ -350,7 +350,7 @@ body {
 }
 
 .header {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -358,10 +358,12 @@ body {
   padding-block: 12px;
   box-shadow: var(--shadow-1);
   z-index: 4;
+
 }
 
 .header.active {
   position: fixed;
+  
 }
 
 .header .container,
@@ -407,6 +409,7 @@ body {
   max-width: 320px;
   height: 100%;
   z-index: 2;
+
   transition: 0.25s var(--cubic-in);
 }
 
