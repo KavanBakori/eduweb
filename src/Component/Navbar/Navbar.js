@@ -13,7 +13,7 @@ const Header = () => {
       <div className="container">
 
         <a href="#" className="logo">
-          <img src="images/anilearn2.png" style={{filter:'invert(100%)'}} width="232" height="50" alt="EduWeb logo" />
+          <img src="/images/anilearn2.png" style={{filter:'invert(100%)'}} width="232" height="50" alt="EduWeb logo" />
         </a>
 
         <nav className="navbar" data-navbar>

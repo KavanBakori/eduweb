@@ -12,7 +12,6 @@ import Cources from '../../Component/Cources/Cources';
 function Home() {
   return (
     <>
-
       <Navbar />
       <Hero />
       <Category />
