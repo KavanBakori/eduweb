@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Container } from './Allcourcecss';
 import { FaBars } from 'react-icons/fa'
 import Sidebar from '../../Component/Sidebar/Sidebar';
+import  Search  from '../../Component/search/search';
 import './Allcources.css'
 import Navbar from '../../Component/Navbar/Navbar'
 const Header = () => {
@@ -14,9 +15,11 @@ const Header = () => {
         <Container>
           <FaBars onClick={showSiderbar} />
           {sidebar && <Sidebar active={setSidebar} />}
+          <Search/>
+
         </Container>
         <div className={sidebar ? 'cards' : 'cardmargin'}>
-          <ul className="grid-list" >
+          <ul className="grid-list" style={{padding:'0 25px'}} >
 
             <li>
               <div className="course-card">

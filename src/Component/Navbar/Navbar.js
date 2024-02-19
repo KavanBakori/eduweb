@@ -9,7 +9,7 @@ const Header = () => {
   };
 
   return (
-    <header className="header" data-header>
+    <header className="header"  data-header style={{position:'fixed' }}>
       <div className="container">
 
         <a href="#" className="logo">
@@ -30,7 +30,7 @@ const Header = () => {
 
           <ul className="navbar-list">
             <li className="navbar-item" style={{ color: 'black' }}>
-              <a href="#home" className="navbar-link" data-nav-link>Home</a>
+              <a href="/" className="navbar-link" data-nav-link>Home</a>
             </li>
 
             <li className="navbar-item">
@@ -42,7 +42,7 @@ const Header = () => {
             </li>
 
             <li className="navbar-item">
-              <a href="#blog" className="navbar-link" data-nav-link>Blog</a>
+              <a href="#blog" className="navbar-link" data-nav-link>Latest Videos</a>
             </li>
 
             <li className="navbar-item">

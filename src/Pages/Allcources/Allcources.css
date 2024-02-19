@@ -358,7 +358,7 @@
   }
 
   .course {
-    background-color: var(--isabelline);
+    background-color:var(--isabelline);
   }
 
   .course-card {
@@ -403,6 +403,7 @@
 
   .course-card .card-content {
     padding: 25px;
+    background-color: aqua;
   }
 
   .course-card .badge {
