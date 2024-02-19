@@ -11,7 +11,7 @@ const Header = () => {
   };
 
   return (
-    <header className="header" data-header>
+    <header className="header"  data-header style={{position:'fixed' }}>
       <div className="container">
 
         <a href="/" className="logo" onClick={()=>navigate('/')}>
