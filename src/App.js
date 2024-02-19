@@ -6,6 +6,8 @@ import Allcource from './Pages/Allcources/Allcource';
 import { BrowserRouter as Router,Routes,Route } from 'react-router-dom';
 import Science from './Component/SidebarPages/Science/Science';
 import Math from './Component/SidebarPages/Math/Math';
+import Devops from './Component/SidebarPages/Devops/Devops';
+import Gamedevelopment from './Component/SidebarPages/Gamedevelopment/Gamedevelopment';
 function App() {
   return (
     <div className="App">
@@ -16,7 +18,8 @@ function App() {
           <Route path='/cource' element={<Allcource></Allcource>} />
           <Route path='/cource/development' element={<Science></Science>} />
           <Route path='/cource/security' element={<Math></Math>} />
-         
+          <Route path='/cource/devops' element={<Devops></Devops>} />
+          <Route path='/cource/gamedevelopment' element={<Gamedevelopment></Gamedevelopment>} />
         </Routes>
       </Router>
     </div>

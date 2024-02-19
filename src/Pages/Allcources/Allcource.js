@@ -17,7 +17,6 @@ const Header = () => {
         </Container>
         <div className={sidebar ? 'cards' : 'cardmargin'}>
           <ul className="grid-list" >
-
             <li>
               <div className="course-card">
 

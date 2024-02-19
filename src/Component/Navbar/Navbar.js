@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import './Navbar.css';
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const navigate=useNavigate();
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
@@ -12,7 +14,7 @@ const Header = () => {
     <header className="header" data-header>
       <div className="container">
 
-        <a href="#" className="logo">
+        <a href="/" className="logo" onClick={()=>navigate('/')}>
           <img src="/images/anilearn2.png" style={{filter:'invert(100%)'}} width="232" height="50" alt="EduWeb logo" />
         </a>
 
@@ -30,23 +32,23 @@ const Header = () => {
 
           <ul className="navbar-list">
             <li className="navbar-item" style={{ color: 'black' }}>
-              <a href="#home" className="navbar-link" data-nav-link>Home</a>
+              <a href="/" className="navbar-link" data-nav-link>Home</a>
             </li>
 
             <li className="navbar-item">
-              <a href="#about" className="navbar-link" data-nav-link>About</a>
+              <a href="/about" className="navbar-link" data-nav-link>About</a>
             </li>
 
             <li className="navbar-item">
-              <a href="#courses" className="navbar-link" data-nav-link>Courses</a>
+              <a href="/cource" className="navbar-link" data-nav-link>Courses</a>
             </li>
 
             <li className="navbar-item">
-              <a href="#blog" className="navbar-link" data-nav-link>Blog</a>
+              <a href="/blog" className="navbar-link" data-nav-link>Blog</a>
             </li>
 
             <li className="navbar-item">
-              <a href="#" className="navbar-link" data-nav-link>Contact</a>
+              <a href="/contact" className="navbar-link" data-nav-link>Contact</a>
             </li>
 
           </ul>

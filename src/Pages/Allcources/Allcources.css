@@ -5,18 +5,17 @@
 .cardmargin {
   margin: auto;
   display: flex;
-  gap: 10px;
+  gap: 60px;
   position: absolute;
   z-index: -1;
   padding: 10px;
   flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
+ 
 }
 
 .cards {  
   display: flex;
-  gap: 10px;
+  gap: 100px;
   position: absolute;
   z-index: -1;
   padding: 10px;
@@ -25,8 +24,7 @@
   margin: auto;
   margin-left: 300px;
   flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
+ 
 }
 
 .category_container {
@@ -346,6 +344,8 @@
     display: flex;
     gap: 30px;
     padding: 0px 20px;
+    flex-wrap: wrap;
+    background-color: #000;
   }
 
   .category-card,
