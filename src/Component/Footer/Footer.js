@@ -31,7 +31,7 @@ function Footer  () {
       <div class="wrapper">
         <span class="span">Email:</span>
 
-        <a href="mailto:info@eduweb.com" class="footer-link">anylearn@eduweb.com</a>
+        <a href="mailto:info@eduweb.com" class="footer-link">anilearn@eduweb.com</a>
       </div>
 
     </div>
@@ -43,28 +43,28 @@ function Footer  () {
       </li>
 
       <li>
-        <a href="#" class="footer-link">About</a>
+        <a href="#about" class="footer-link">About</a>
       </li>
 
       <li>
-        <a href="#" class="footer-link">Courses</a>
-      </li>
-
-      <li>
-        <a href="#" class="footer-link">Instructor</a>
-      </li>
-
-      <li>
-        <a href="#" class="footer-link">Events</a>
+        <a href="#courses" class="footer-link">Courses</a>
       </li>
 
       <li>
         <a href="#" class="footer-link">Instructor Profile</a>
       </li>
 
-      <li>
+      {/* <li>
+        <a href="#" class="footer-link">Events</a>
+      </li> */}
+
+      {/* <li>
+        <a href="#" class="footer-link">Instructor Profile</a>
+      </li> */}
+
+      {/* <li>
         <a href="#" class="footer-link">Purchase Guide</a>
-      </li>
+      </li> */}
 
     </ul>
 
@@ -74,13 +74,13 @@ function Footer  () {
         <p class="footer-list-title">Links</p>
       </li>
 
-      <li>
+      {/* <li>
         <a href="#" class="footer-link">Contact Us</a>
-      </li>
+      </li> */}
 
-      <li>
+      {/* <li>
         <a href="#" class="footer-link">Gallery</a>
-      </li>
+      </li> */}
 
       <li>
         <a href="#" class="footer-link">FAQ's</a>
@@ -101,14 +101,14 @@ function Footer  () {
       <p class="footer-list-title">Contacts</p>
 
       <p class="footer-list-text">
-        Enter your email address to register to our newsletter subscription
+        Send your suggestion
       </p>
 
       <form action="" class="newsletter-form">
-        <input type="email" name="email_address" placeholder="Your email" required class="input-field"/>
+        <input type="text" name="email_address" placeholder="Your suggestion" required class="input-field"/>
 
         <button type="submit" class="btn has-before">
-          <span class="span">Subscribe</span>
+          <span class="span">Send</span>
 
           <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
         </button>
@@ -134,17 +134,17 @@ function Footer  () {
           </a>
         </li>
 
-        <li>
+        {/* <li>
           <a href="#" class="social-link">
             <ion-icon name="logo-twitter"></ion-icon>
           </a>
-        </li>
+        </li> */}
 
-        <li>
+        {/* <li>
           <a href="#" class="social-link">
             <ion-icon name="logo-youtube"></ion-icon>
           </a>
-        </li>
+        </li> */}
 
       </ul>
 
