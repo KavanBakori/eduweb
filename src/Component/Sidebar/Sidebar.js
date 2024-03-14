@@ -1,42 +1,46 @@
-import React from 'react'
-import { Container, Content } from './Sidebarcss'
-import {
-  FaTimes,
-  FaHome,
-  FaChartBar
-} from 'react-icons/fa'
+import React, { useState } from 'react';
+import * as FaIcons from 'react-icons/fa';
+import * as AiIcons from 'react-icons/ai';
+import { Link } from 'react-router-dom';
+import { SidebarData } from './SidebarData';
+import './sidebar.css';
+import { IconContext } from 'react-icons';
 
-import SidebarItem from '../../Component/SidebarItem/SidebarItem';
-import { useNavigate } from 'react-router-dom';
+function Sidebar() {
+  const [sidebar, setSidebar] = useState(false);
 
-const Sidebar = ({ active }) => {
-  const navigate=useNavigate();
-  const closeSidebar = () => {
-    active(false)
-  }
-  const handleHome=()=>{
-    navigate('/cource/security');
-  }
-  const handleDevelopment=()=>{
-    navigate('/cource/development');
-  }
-  const handleGamedevelopment=()=>{
-    navigate('/cource/gamedevelopment');
-  }
-  const handledevops=()=>{
-    navigate('/cource/devops');
-  }
+  const showSidebar = () => setSidebar(!sidebar);
+
   return (
-    <Container sidebar={active}>
-      <FaTimes onClick={closeSidebar} />
-      <Content>
-        <div onClick={handleHome}><SidebarItem Icon={FaHome} Text="Security" /></div>
-        <div onClick={handleDevelopment}><SidebarItem Icon={FaChartBar} Text="Development" /></div>
-        <div onClick={handleGamedevelopment}><SidebarItem Icon={FaHome} Text="GameDevelopment" /></div>
-        <div onClick={handledevops}><SidebarItem Icon={FaChartBar} Text="Devops" /></div>
-      </Content>
-    </Container>
-  )
+    <>
+      <IconContext.Provider value={{ color: '#fff' }}>
+        <div className='navbar'>
+          <Link to='#' className='menu-bars'>
+            <FaIcons.FaBars style={{color:'black'}} onClick={showSidebar} />
+          </Link>
+        </div>
+        <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
+          <ul className='nav-menu-items' onClick={showSidebar}>
+            <li className='navbar-toggle'>
+              <Link to='#' className='menu-bars'>
+                <AiIcons.AiOutlineClose />
+              </Link>
+            </li>
+            {SidebarData.map((item, index) => {
+              return (
+                <li key={index} className={item.cName}>
+                  <Link to={item.path}>
+                    {item.icon}
+                    <span>{item.title}</span>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </nav>
+      </IconContext.Provider>
+    </>
+  );
 }
 
 export default Sidebar;

@@ -1,10 +1,9 @@
-import Allpages from '../../../Pages/Allcources/Allcource';
 import './Gamedevelopment.css';
 
 function Gamedevelopment() {
   return (
     <>
-    <Allpages></Allpages>
+    <h1>Game</h1>
     </>
   );
 }

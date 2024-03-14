@@ -2,10 +2,11 @@ import React from 'react';
 import './App.css'
 import Home from  './Pages/Home/Home';
 import Login from './Pages/Login/Login';
+import Profile from './Pages/About/profile';
 import Allcource from './Pages/Allcources/Allcource';
 import { BrowserRouter as Router,Routes,Route } from 'react-router-dom';
 import Science from './Component/SidebarPages/Science/Science';
-import Math from './Component/SidebarPages/Math/Math';
+import Math from './Component/SidebarPages/Security/security';
 import Devops from './Component/SidebarPages/Devops/Devops';
 import Gamedevelopment from './Component/SidebarPages/Gamedevelopment/Gamedevelopment';
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/login' element={<Login />} />
+          <Route path='/profile' element={<Profile />} />
           <Route path='/cource' element={<Allcource></Allcource>} />
           <Route path='/cource/development' element={<Science></Science>} />
           <Route path='/cource/security' element={<Math></Math>} />

@@ -62,10 +62,10 @@ function CategorySection() {
                         <li>
                             <div className="category-card" style={{ backgroundColor: 'hsl(42, 94%, 91%)' }}>
                                 <div className="card-icon" style={{ backgroundColor: 'hsl(42, 94%, 81%)' }}>
-                                    <img src="images/game-development.png" width="40" height="40" loading="lazy" alt="Hybrid Distance Programs" className="img" />
+                                    <img src="images/datascience.png" width="40" height="40" loading="lazy" alt="Hybrid Distance Programs" className="img" />
                                 </div>
                                 <h3 className="h3">
-                                    <a href="#" className="card-title">Game Development</a>
+                                    <a href="#" className="card-title">Data Science</a>
                                 </h3>
                                 {/* <p className="card-text">
                                     Lorem ipsum dolor consec tur elit adicing sed umod tempor.
