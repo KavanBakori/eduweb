@@ -15,16 +15,16 @@ function Sidebar() {
     <>
       <IconContext.Provider value={{ color: '#fff' }}>
         <div className='navbar'>
-          <Link to='#' className='menu-bars'>
+          {/* <Link to='#' className='menu-bars'>
             <FaIcons.FaBars style={{color:'black'}} onClick={showSidebar} />
-          </Link>
+          </Link> */}
         </div>
-        <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
+        <nav className='nav-menu active'>
           <ul className='nav-menu-items' onClick={showSidebar}>
             <li className='navbar-toggle'>
-              <Link to='#' className='menu-bars'>
+              {/* <Link to='#' className='menu-bars'>
                 <AiIcons.AiOutlineClose />
-              </Link>
+              </Link> */}
             </li>
             {SidebarData.map((item, index) => {
               return (

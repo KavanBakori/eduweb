@@ -2,42 +2,32 @@ import React from 'react';
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import * as IoIcons from 'react-icons/io';
+import { CgInfinity } from "react-icons/cg";
 
 export const SidebarData = [
   {
-    title: 'Home',
+    title: 'Devlopment',
     path: '/',
-    icon: <AiIcons.AiFillHome />,
+    icon: <img src='images/development.png' alt='' width={'20px'}></img>,
     cName: 'nav-text'
   },
   {
-    title: 'Reports',
+    title: 'Cyber Security',
     path: '/reports',
-    icon: <IoIcons.IoIosPaper />,
+    icon:  <img src='images/cyber-security (1).png' alt='' width={'20px'}></img>,
     cName: 'nav-text'
   },
   {
-    title: 'Products',
+    title: 'Devops',
     path: '/products',
-    icon: <FaIcons.FaCartPlus />,
+    icon:  <CgInfinity value={{ color: 'white', size: 500090 }}/>,
     cName: 'nav-text'
   },
   {
-    title: 'Team',
+    title: 'Data Science',
     path: '/team',
-    icon: <IoIcons.IoMdPeople />,
+    icon: <img src='images/artificial-intelligence.png' alt='' width={'20px'}></img>,
     cName: 'nav-text'
   },
-  {
-    title: 'Messages',
-    path: '/messages',
-    icon: <FaIcons.FaEnvelopeOpenText />,
-    cName: 'nav-text'
-  },
-  {
-    title: 'Support',
-    path: '/support',
-    icon: <IoIcons.IoMdHelpCircle />,
-    cName: 'nav-text'
-  }
+  
 ];
