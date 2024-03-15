@@ -191,7 +191,7 @@ const Cources = () => {
 
       </ul>
 
-      <a href="/allcources" className="btn has-before">
+      <a href="/cource" className="btn has-before">
         <span className="span">Browse more courses</span>
 
         <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
