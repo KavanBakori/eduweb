@@ -25,7 +25,7 @@ function Login() {
                             <Components.Input type='email' placeholder='Email' />
                             <Components.Input type='password' placeholder='Password' />
                             <Components.Anchor href='#'>Forgot your password?</Components.Anchor>
-                            <Components.Button>Sigin In</Components.Button>
+                            <Components.Button onClick={()=>{navigate('/')}}>Sigin In</Components.Button>
                         </Components.Form>
                     </Components.SignInContainer>
 
@@ -37,7 +37,7 @@ function Login() {
                                 <Components.Paragraph>
                                     To keep connected with us please login with your personal info
                                 </Components.Paragraph>
-                                <Components.GhostButton onClick={() => toggle(true)}>
+                                <Components.GhostButton onClick={() => {toggle(true); navigate('/')}}>
                                     Sign In
                                 </Components.GhostButton>
                             </Components.LeftOverlayPanel>
@@ -51,10 +51,8 @@ function Login() {
                                     Sigin Up
                                 </Components.GhostButton>
                             </Components.RightOverlayPanel>
-
                         </Components.Overlay>
                     </Components.OverlayContainer>
-
                 </Components.Container>
             </div>
         </>

@@ -8,6 +8,7 @@ import Science from './Component/SidebarPages/Science/Science';
 import Math from './Component/SidebarPages/Math/Math';
 import Devops from './Component/SidebarPages/Devops/Devops';
 import Gamedevelopment from './Component/SidebarPages/Gamedevelopment/Gamedevelopment';
+import Cource from './Pages/Cource/Cource';
 function App() {
   return (
     <div className="App">
@@ -16,6 +17,7 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/login' element={<Login />} />
           <Route path='/cource' element={<Allcource></Allcource>} />
+          <Route path='/cource/:courseName' element={<Cource></Cource>} />
           <Route path='/cource/development' element={<Science></Science>} />
           <Route path='/cource/security' element={<Math></Math>} />
           <Route path='/cource/devops' element={<Devops></Devops>} />
