@@ -1,10 +1,34 @@
-import React from "react";
+import React, {useState} from "react";
 import * as Components from './Component';
 import { useNavigate } from "react-router-dom";
 import './Login.css';
 function Login() {
     const navigate=useNavigate();
     const [signIn, toggle] = React.useState(true);
+    const [form, setForm] = useState({});
+
+    const handleForm = (e) => {
+        setForm({
+            ...form,
+            [e.target.name]:e.target.value,
+        })
+    }
+
+    const submitHandler = async (e) => {
+        e.preventDefault(); // Prevent the default form submission behavior
+        const signup = await fetch('http://localhost:3002/signup', {
+          method: 'POST',
+          body: JSON.stringify(form),
+          headers: {
+            'Content-Type': 'application/json' 
+          }
+        });
+        const data = await signup.text(); 
+        console.log(data);
+        alert("Welcome to AniLearn");
+      }
+    
+
     return (
         <>
             <div className="logincomponent">
@@ -12,10 +36,11 @@ function Login() {
                     <Components.SignUpContainer signinIn={signIn}>
                         <Components.Form>
                             <Components.Title>Create Account</Components.Title>
-                            <Components.Input type='text' placeholder='Name' />
-                            <Components.Input type='email' placeholder='Email' />
-                            <Components.Input type='password' placeholder='Password' />
-                            <Components.Button onClick={() => navigate('/')}>Sign Up</Components.Button>
+                            <Components.Input type='text' onChange={handleForm} name="name"  placeholder='Name' />
+                            <Components.Input type='email' onChange={handleForm} name="email" placeholder='Email' />
+                            <Components.Input type='password' onChange={handleForm} name="password" placeholder='Password' />
+                            <Components.Input type='role' onChange={handleForm} name="role" placeholder='Student/Educator/Admin' />
+                            <Components.Button onClick={submitHandler}>Sign Up</Components.Button>
                         </Components.Form>
                     </Components.SignUpContainer>
 
