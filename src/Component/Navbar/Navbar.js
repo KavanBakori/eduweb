@@ -78,6 +78,7 @@ const Header = () => {
             {isDropdownOpen && (
               <div className="dropdown-content">
                 <a href="/profile">My Profile</a>
+                <a href="/suggestion">All Suggestion</a>
                 <a href="/profile">Sign Out</a>
                 {/* Add more dropdown items here */}
               </div>

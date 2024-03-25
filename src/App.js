@@ -10,6 +10,7 @@ import Math from './Component/SidebarPages/Security/security';
 import Devops from './Component/SidebarPages/Devops/Devops';
 import Gamedevelopment from './Component/SidebarPages/Gamedevelopment/Gamedevelopment';
 import Cource from './Pages/Cource/Cource';
+import EduSelect from './Pages/EDU_select/EduSelect';
 function App() {
   return (
     <div className="App">
@@ -19,6 +20,7 @@ function App() {
           <Route path='/login' element={<Login />} />
           <Route path='/profile' element={<Profile />} />
           <Route path='/cource' element={<Allcource></Allcource>} />
+          <Route path='/suggestion' element={<EduSelect></EduSelect>} />
           <Route path='/cource/:courseName' element={<Cource></Cource>} />
           <Route path='/cource/development' element={<Science></Science>} />
           <Route path='/cource/security' element={<Math></Math>} />
