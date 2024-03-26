@@ -9,6 +9,7 @@ import Allsuggetions from './Pages/allsuggetions/allsuggetions';
 import Studentsuggetion from './Pages/suggestion/suggestion';
 import { BrowserRouter as Router,Routes,Route } from 'react-router-dom';
 import Aboutus from './Pages/Aboutus/aboutus';
+import Cource from './Pages/Cource/Cource';
 // import Science from './Component/SidebarPages/Science/Science';
 // import Math from './Component/SidebarPages/Security/security';
 // import Devops from './Component/SidebarPages/Devops/Devops';
@@ -26,6 +27,7 @@ function App() {
           <Route path='/courseupload' element={<Courseupload />} />
           <Route path='/about' element={<Aboutus />} />
           <Route path='/cource' element={<Allcource></Allcource>} />
+          <Route path='/cource/:courseid' element={<Cource></Cource>} />
           {/* <Route path='/cource/development' element={<Science></Science>} />
           <Route path='/cource/security' element={<Math></Math>} />
           <Route path='/cource/devops' element={<Devops></Devops>} />
