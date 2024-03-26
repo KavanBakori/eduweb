@@ -200,6 +200,9 @@ app.post('/picked', async(req,res)=>{
       const picked = await pick.save() ;
       console.log(picked);
       res.status(200).json(picked);
+
+      const deletedEntry = await Suggestion.findOneAndDelete({topicname,topicdes });
+    
     }catch(e){
       console.error('Error picking topic:', error);
     res.status(500).json({ error: 'An error occurred' });

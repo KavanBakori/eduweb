@@ -134,8 +134,8 @@ function Start() {
               <input type="number" name='duretion' onChange={handleForm} placeholder="Enter duretion of your course" required />
             </div>
             <div className="input-box">
-              <h3>Prize of your course  (in ₹)</h3>
-              <input type="number" name='duretion' onChange={handleForm} placeholder="Enter the prize of your course" required />
+              <h3>Prize of your course</h3>
+              <input type="number" name='duretion' onChange={handleForm} placeholder="Enter the prize in ₹" required />
             </div>
           </div>
         </form>

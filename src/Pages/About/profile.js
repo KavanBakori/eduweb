@@ -7,6 +7,7 @@ import axios from 'axios';
 import { useLocation } from 'react-router-dom';
 import Allsuggetions from '../allsuggetions/allsuggetions';
 import UploadVideoComponent from '../../Component/uploadvideo/upload'
+import Start from '../../Component/courseform/start'
 
 const Profile = () => {
   const [activeTab, setActiveTab] = useState('general');
@@ -268,7 +269,11 @@ const Uploadvideo = () => {
 }
 
 const Uploadcourse = () => {
-
+     return (
+      <>
+      <Start/>
+      </>
+     );
 }
 
 export default Profile;

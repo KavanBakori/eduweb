@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+// import UploadVideoComponent from '../uploadvideo/upload'
 
-const Picked = ({email}) => {
+const Picked = ({ email }) => {
     const [picked, setPicked] = useState([]);
-    
+
     useEffect(() => {
         axios.get('http://localhost:3002/fetchpicked')
             .then((response) => {
@@ -22,6 +23,7 @@ const Picked = ({email}) => {
                         <tr>
                             <th>Name of the Topic</th>
                             <th>Description of the Topic</th>
+                            {/* <th>Upload your video</th> */}
                         </tr>
                     </thead>
                     <tbody>
@@ -31,6 +33,7 @@ const Picked = ({email}) => {
                                 <tr >
                                     <td>{item.topicname}</td>
                                     <td>{item.topicdes}</td>
+                                    {/* <td style={{display:'flex',justifyContent:'center'}}><UploadVideoComponent /></td> */}
                                 </tr>
                             ))}
                     </tbody>
