@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
 import './about.css';
 import Navbar from '../../Component/Navbar/Navbar';
+import Studentsuggetion from '../../Component/studentsuggetion/studentsuggetion';
 
 const Profile = () => {
   const [activeTab, setActiveTab] = useState('general');
@@ -11,6 +12,8 @@ const Profile = () => {
         return <GeneralTabContent />;
       case 'changePassword':
         return <ChangePasswordTabContent />;
+      case 'suggetion':
+        return <Suggetion/>;
       default:
         return null;
     }
@@ -34,6 +37,11 @@ const Profile = () => {
                 className={`settings-item ${activeTab === 'changePassword' ? 'active' : ''}`}
                 onClick={() => setActiveTab('changePassword')}>
                 Change password
+              </li>
+              <li
+                className={`settings-item ${activeTab === 'suggetion' ? 'active' : ''}`}
+                onClick={() => setActiveTab('suggetion')}>
+                Give topic suggetion
               </li>
             </ul>
           </div>
@@ -124,6 +132,10 @@ const ChangePasswordTabContent = () => {
   </div>;
 };
 
+
+const Suggetion = () => {
+  return <Studentsuggetion/>
+}
 
 
 
