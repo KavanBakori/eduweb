@@ -45,9 +45,7 @@ function Start() {
   }
 
   const handlesubmit = async (e) => {
-
-
-    const requiredFields = document.querySelectorAll('[required]');
+  const requiredFields = document.querySelectorAll('[required]');
   let isValid = true;
 
   requiredFields.forEach((field) => {
@@ -117,25 +115,25 @@ function Start() {
           </div> */}
           <div className="input-box">
             <h3>Course Title</h3>
-            <input type="text" name='text' style={{ width: '97%' }} onChange={handleForm} placeholder="Enter your course title" required />
+            <input type="text" name='text' style={{ width: '97%' }} onChange={handleForm} placeholder="Enter your course title"  />
           </div>
           <div className="input-box">
             <h3>Course Description</h3>
-            <input type="text" name='text' style={{ width: '97%' }} onChange={handleForm} placeholder="Enter your course description" required />
+            <input type="text" name='text' style={{ width: '97%' }} onChange={handleForm} placeholder="Enter your course description"  />
           </div>
 
           <div className="column">
             <div className="input-box">
               <h3>Numbers of videos</h3>
-              <input type="number" name='phone' onChange={handleForm} placeholder="Enter the total count of videos in your course" required />
+              <input type="number" name='phone' onChange={handleForm} placeholder="Enter the total count of videos in your course"  />
             </div>
             <div className="input-box">
               <h3>Duretion of the course</h3>
-              <input type="number" name='duretion' onChange={handleForm} placeholder="Enter duretion of your course" required />
+              <input type="number" name='duretion' onChange={handleForm} placeholder="Enter duretion of your course"  />
             </div>
             <div className="input-box">
               <h3>Prize of your course  (in ₹)</h3>
-              <input type="number" name='duretion' onChange={handleForm} placeholder="Enter the prize of your course" required />
+              <input type="number" name='duretion' onChange={handleForm} placeholder="Enter the prize of your course"  />
             </div>
           </div>
         </form>
@@ -147,7 +145,7 @@ function Start() {
 
           <div className="input-box">
             <h3>Name of your Promo Video</h3>
-            <input type="text" name='resname' style={{ width: '97%' }} onChange={handleForm} placeholder="Enter the name of your video" required />
+            <input type="text" name='resname' style={{ width: '97%' }} onChange={handleForm} placeholder="Enter the name of your video"  />
             <br />
             <h3>Video Description</h3>
             <input type="text" name='tagline' style={{ width: '97%' }} onChange={handleForm} placeholder="Enter the description of your promo video" />
@@ -164,7 +162,7 @@ function Start() {
         {value.map((data,i)=>{
           return (
             <div className="input-box" style={{display:'flex',columnGap:'20px'}}>
-            <input type="text" name='resname' style={{ width: '45%' }} onChange={handleForm} placeholder="Enter the name of your video" required />
+            <input type="text" name='resname' style={{ width: '45%' }} onChange={handleForm} placeholder="Enter the name of your video" />
           <UploadVideoComponent/>
           </div>
           )
