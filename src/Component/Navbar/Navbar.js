@@ -1,14 +1,33 @@
 import React, { useState } from 'react';
 import './Navbar.css';
 import { useNavigate } from 'react-router-dom';
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Header = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const navigate=useNavigate();
+  const { loginWithRedirect } = useAuth0();
+  const { logout } = useAuth0();
+  const { user, isAuthenticated, isLoading } = useAuth0();
 
+  // onSignupSubmit
+
+  
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
+
+  const nav = () => {
+    if (user) {
+      navigate('/profile', { state: { name: user.name, email: user.email } });
+    } else {
+      // Handle the case when user is not defined
+      // You can show an error message or handle it according to your application logic
+      console.error("User is not defined");
+    }
+  }
+  
+  
 
   return (
     <header className="header"  data-header style={{position:'fixed' }}>
@@ -36,7 +55,7 @@ const Header = () => {
             </li>
 
             <li className="navbar-item">
-              <a href="/about" className="navbar-link" data-nav-link>About</a>
+              <a href="/about" className="navbar-link" data-nav-link>About us</a>
             </li>
 
             <li className="navbar-item">
@@ -44,8 +63,14 @@ const Header = () => {
             </li>
 
             <li className="navbar-item">
-              <a href="/blog" className="navbar-link" data-nav-link>Blog</a>
+              <a href="/videos" className="navbar-link" data-nav-link>Videos</a>
             </li>
+
+            {/* {
+              isAuthenticated ? <li className="navbar-item">
+              <a href="/suggetion" className="navbar-link" data-nav-link>Send Suggetions</a>
+            </li> : ""
+            } */}
 
             <li className="navbar-item">
               <a href="/contact" className="navbar-link" data-nav-link>Contact</a>
@@ -57,33 +82,61 @@ const Header = () => {
 
         <div className="header-actions">
 
-          <button className="header-action-btn" aria-label="toggle search" title="Search">
+          {/* <button className="header-action-btn" aria-label="toggle search" title="Search">
             <ion-icon name="search-outline" aria-hidden="true"></ion-icon>
-          </button>
+          </button> */}
 
-          <button className="header-action-btn" aria-label="cart" title="Cart">
+          {/* <button className="header-action-btn" aria-label="cart" title="Cart">
             <ion-icon name="cart-outline" aria-hidden="true"></ion-icon>
 
             <span className="btn-badge">0</span>
-          </button>
+          </button> */}
 
-          <a href="/login" className="btn has-before">
+
+
+            {
+              isAuthenticated ?  <div className="dropdown">
+              <button className="dropdown-btn" onClick={toggleDropdown}>
+                <img src='/images/user_profile_icon.png' alt='user_profile' width={'30px'} height={''}></img>
+              </button>
+              {isDropdownOpen && (
+                <div className="dropdown-content">
+                  <p style={{textAlign:'center'}}>Welcome, {user?.name}</p>
+                  <a onClick={nav}>My Profile</a>
+                  <a href="/" onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>Sign Out</a>
+                </div>
+              )}
+            </div> :<button style={{backgroundColor:'#1AB79D',paddingInline:'40px',paddingTop:'10px',paddingBottom:'10px',borderRadius:'10px',color:'white'}} onClick={() => loginWithRedirect()}>Try for free</button>
+            }
+
+
+
+            {/* {
+              isAuthenticated ?  <div className="dropdown">
+              <button className="dropdown-btn" onClick={toggleDropdown}>
+                <img src='/images/user_profile_icon.png' alt='user_profile' width={'30px'} height={''}></img>
+              </button>
+              {isDropdownOpen && (
+                <div className="dropdown-content">
+                  <a href="/profile">My Profile</a>
+                  <a href="/" onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>Sign Out</a>
+                </div>
+              )}
+            </div> : <a href="/login" className="btn has-before">
             <span className="span">Try for free</span>
             <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
           </a>
-          <div className="dropdown">
-            <button className="dropdown-btn" onClick={toggleDropdown}>
-              <img src='/images/user_profile_icon.png' alt='user_profile' width={'30px'} height={''}></img>
-            </button>
-            {isDropdownOpen && (
-              <div className="dropdown-content">
-                <a href="/profile">My Profile</a>
-                <a href="/suggestion">All Suggestion</a>
-                <a href="/profile">Sign Out</a>
-                {/* Add more dropdown items here */}
-              </div>
-            )}
-          </div>
+            } */}
+
+            
+
+
+          
+          
+          
+
+
+
         </div>
         <div className="overlay" data-nav-toggler data-overlay></div>
 
