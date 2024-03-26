@@ -6,22 +6,23 @@
     align-items: center;
   } */
   
-  .menu-bars {
-    margin-top: 30px;
+  /* .menu-bars {
+    margin-top: 50px;
     margin-left: 2rem;
     font-size: 2rem;
     background: none;
     
-  }
+  } */
   
   .nav-menu {
+    margin-top: 50px;
     background-color: #060b26;
     width: 250px;
     height: 100vh;
     display: flex;
     justify-content: center;
     position: fixed;
-    top: 10;
+    top: 30;
     left: -100%;
     transition: 850ms;
   }

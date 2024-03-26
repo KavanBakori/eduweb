@@ -1,19 +1,50 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './about.css';
 import Navbar from '../../Component/Navbar/Navbar';
+import Picked from '../../Component/pickedtopics/picked'
 import Studentsuggetion from '../../Component/studentsuggetion/studentsuggetion';
+import axios from 'axios';
+import { useLocation } from 'react-router-dom';
+import Allsuggetions from '../allsuggetions/allsuggetions';
+import UploadVideoComponent from '../../Component/uploadvideo/upload'
 
 const Profile = () => {
   const [activeTab, setActiveTab] = useState('general');
+  const location = useLocation();
+  const name = location.state.name;
+  const email = location.state.email;
+
+  const [prof, setProfile] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get('http://localhost:3002/fetchprofile')
+      .then((response) => {
+        setProfile(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching data:', error);
+      });
+  }, []);
 
   const renderContent = () => {
+
+
+
+
     switch (activeTab) {
       case 'general':
-        return <GeneralTabContent />;
-      case 'changePassword':
-        return <ChangePasswordTabContent />;
-      case 'suggetion':
-        return <Suggetion/>;
+        return <GeneralTabContent name={name} email={email} />;
+      case 'EducatorComponent':
+        return <EducatorComponent email={email} />;
+      case 'StudentComponent':
+        return <StudentComponent />;
+      case 'Pickedtopics':
+        return <Pickedtopics email={email} />;
+      case 'Uploadvideo':
+        return <Uploadvideo />;
+      case 'Uploadcourse':
+        return <Uploadcourse />;
       default:
         return null;
     }
@@ -33,113 +64,268 @@ const Profile = () => {
                 onClick={() => setActiveTab('general')}>
                 General
               </li>
-              <li
-                className={`settings-item ${activeTab === 'changePassword' ? 'active' : ''}`}
-                onClick={() => setActiveTab('changePassword')}>
-                Change password
-              </li>
-              <li
-                className={`settings-item ${activeTab === 'suggetion' ? 'active' : ''}`}
-                onClick={() => setActiveTab('suggetion')}>
-                Give topic suggetion
-              </li>
+
+              {prof.filter((item) => item.email === email).map((profile, index) => {
+                if (profile.occupation === "Educator") {
+                  return (
+                    <>
+                      <li
+                        key={index} // Ensure each list item has a unique key
+                        className={`settings-item ${activeTab === 'EducatorComponent' ? 'active' : ''}`}
+                        onClick={() => setActiveTab('EducatorComponent')}>
+                        All Suggestions
+                      </li>
+                      <li
+                        key={index} // Ensure each list item has a unique key
+                        className={`settings-item ${activeTab === 'Pickedtopics' ? 'active' : ''}`}
+                        onClick={() => setActiveTab('Pickedtopics')}>
+                        Topics which you picked
+                      </li>
+                      <li
+                        key={index} // Ensure each list item has a unique key
+                        className={`settings-item ${activeTab === 'Uploadvideo' ? 'active' : ''}`}
+                        onClick={() => setActiveTab('Uploadvideo')}>
+                        Upload video
+                      </li>
+                      <li
+                        key={index} // Ensure each list item has a unique key
+                        className={`settings-item ${activeTab === 'Uploadcourse' ? 'active' : ''}`}
+                        onClick={() => setActiveTab('Uploadcourse')}>
+                        Upload Course
+                      </li>
+                    </>
+                  );
+                } else if (profile.occupation === "Student") {
+                  return (
+                    <li
+                      key={index} // Ensure each list item has a unique key
+                      className={`settings-item ${activeTab === 'StudentComponent' ? 'active' : ''}`}
+                      onClick={() => setActiveTab('StudentComponent')}>
+                      Give Topic Suggestion
+                    </li>
+                  );
+                }
+                return null; // Return null for other occupations
+              })}
             </ul>
           </div>
-
           <div className="settings-content">
             {renderContent()}
           </div>
         </div>
+
       </div>
     </>
   );
 };
 
-const GeneralTabContent = () => {
+const GeneralTabContent = ({ name, email }) => {
+  const [prof, setProfile] = useState([]);
+  // const [image, setImage] = useState("");
+  // const [form, setForm] = useState({});
+  const [role, setrole] = useState("");
+  const [phone, setPhone] = useState("");
 
-  const [image, setImage] = useState("");
+  useEffect(() => {
+    axios
+      .get('http://localhost:3002/fetchprofile')
+      .then((response) => {
+        setProfile(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching data:', error);
+      });
+  }, []);
 
-  const handleImageChange = (e) => {
-    setImage(e.target.files[0]);
+  // const handleImageChange = (e) => {
+  //   setImage(e.target.files[0]);
+  // }
+
+  const handleSave = async () => {
+    try {
+      if (email && role && phone) {
+        const response = await axios.put('http://localhost:3002/profile', { email, role, phone });
+        console.log(response);
+      } else {
+        console.error('Error: email, role, or phone is missing.');
+      }
+    } catch (error) {
+      console.error('Error updating profile:', error);
+    }
   }
 
 
+  return (
+    <div className="settings-content" style={{ width: '900px' }}>
+      {/* <div className="user-profile">
 
-
-  // Replace this with actual content
-  return <div className="settings-content" style={{ width: '900px' }}>
-    <div className="user-profile">
-
-      {image ? <img src={URL.createObjectURL(image)} alt="User Avatar" className="user-avatar" />
-        : <img src="https://img.freepik.com/free-vector/isolated-young-handsome-man-different-poses-white-background-illustration_632498-859.jpg?size=338&ext=jpg&ga=GA1.1.1395880969.1710201600&semt=ais" alt="User Avatar" className="user-avatar" />
-      }
-      <div className="profile-actions">
-        {/* <button className="btn-upload">Upload new photo</button> */}
-        <label className="btn-upload">
-          Upload new photo
-          <input type="file" style={{ display: 'none' }} onChange={handleImageChange} className="account-settings-fileinput" />
-        </label>
-        {/* <button className="btn-reset">Reset</button> */}
-        {/* <p className="file-instructions">Allowed JPG, GIF or PNG. Max size of 800K</p> */}
+        {image ? <img src={URL.createObjectURL(image)} alt="User Avatar" className="user-avatar" />
+          : <img src="https://img.freepik.com/free-vector/isolated-young-handsome-man-different-poses-white-background-illustration_632498-859.jpg?size=338&ext=jpg&ga=GA1.1.1395880969.1710201600&semt=ais" alt="User Avatar" className="user-avatar" />
+        }
+        <div className="profile-actions">
+          <label className="btn-upload">
+            Upload new photo
+            <input type="file" style={{ display: 'none' }} onChange={handleImageChange} className="account-settings-fileinput" />
+          </label>
+          <p className="file-instructions">Allowed JPG, PNG. Max size of 800K</p>
+        </div>
+      </div> */}
+      <div className="user-details" >
+        <div className="form-field">
+          <label htmlFor="username">Username</label>
+          <input type="text" name="username" placeholder="Enter your username" value={name} />
+        </div>
+        <div className="form-field">
+          <label htmlFor="email">E-mail</label>
+          <input type="text" name="email" placeholder="Enter your E-mail address" value={email} />
+        </div>
+        <div className="form-field">
+          <label htmlFor="phone">Phone Number</label>
+          <input type="number" onChange={(e) => { setPhone(e.target.value) }} name="phone" placeholder="Enter your phone number" />
+        </div>
+        <div className="form-field">
+          <label htmlFor="occupation">Occupation</label>
+          <input type="text" onChange={(e) => { setrole(e.target.value) }} name="occupation" placeholder="Student/Educator" />
+        </div>
+      </div>
+      <div className="settings-footer">
+        <button onClick={handleSave} className="btn-save">Save changes</button>
       </div>
     </div>
-
-    <div className="user-details">
-      <div className="form-field">
-        <label for="username">Username</label>
-        <input type="text" placeholder='Enter your username' />
-      </div>
-      <div className="form-field">
-        <label for="name">Full Name</label>
-        <input type="text" placeholder='Enter your Full name' />
-      </div>
-      <div className="form-field">
-        <label for="email">E-mail</label>
-        <input type="text" placeholder='Enter your E-mail address' />
-      </div>
-      <div className="form-field">
-        <label for="company">Phone Number</label>
-        <input type="number" placeholder='Enter your phone number' />
-      </div>
-    </div>
-
-    <div className="settings-footer">
-      <button className="btn-save">Save changes</button>
-      {/* <button className="btn-cancel">Cancel</button> */}
-    </div>
-  </div>;
+  );
 };
 
-const ChangePasswordTabContent = () => {
-  // Replace this with actual content
-  return <div className="settings-content" style={{ width: '900px' }}>
+const EducatorComponent = ({email}) => {
+  const [prof, setProfile] = useState([]);
 
-    <div className="user-details">
-      <div className="form-field">
-        <label for="newpass">New Password</label>
-        <input type="password" placeholder='Enter your new password' name="" id="" />
-      </div>
-      <div className="form-field">
-        <label for="conpass">Confirm Password</label>
-        <input type="password" placeholder='Enter confirm password' name="" id="" />
-      </div>
-    </div>
+  useEffect(() => {
+    axios
+      .get('http://localhost:3002/fetchprofile')
+      .then((response) => {
+        setProfile(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching data:', error);
+      });
+  }, []);
 
-    <div className="settings-footer">
-      <button className="btn-save">Save changes</button>
-      {/* <button className="btn-cancel">Cancel</button> */}
-    </div>
-  </div>;
+
+  return (
+
+    <>
+      {prof.filter((item) => item.email === email).map((profile, index) => {
+          return (
+            <>
+              <div className="settings-content" style={{ width: '900px' }}>
+                <Allsuggetions email={profile.email} />
+              </div>
+            </>
+          );
+      })}
+    </>
+
+  );
 };
 
 
-const Suggetion = () => {
-  return <Studentsuggetion/>
+const StudentComponent = () => {
+  return (
+    <Studentsuggetion />
+  );
+};
+
+const Pickedtopics = ({email}) => {
+
+  return (
+    <>
+              <div className="settings-content" style={{ width: '900px' }}>
+                <Picked email={email} />
+              </div>
+      </>
+  );
 }
 
 
+const Uploadvideo = () => {
+    return (
+      <>
+       <form action="#" className="form">
+          <h1>Details of Your Promo video</h1>
+
+          <div className="input-box">
+            <h3>Name of your Promo Video</h3>
+            <input type="text" name='resname' style={{ width: '97%' }}  placeholder="Enter the name of your video" required />
+            <br />
+            <h3>Video Description</h3>
+            <input type="text" name='tagline' style={{ width: '97%' }}  placeholder="Enter the description of your promo video" />
+            <br />
+          </div>
+          <h3>Upload your video here</h3>
+          <UploadVideoComponent/>
+        </form>
+      </>
+    );
+}
+
+const Uploadcourse = () => {
+
+}
 
 export default Profile;
+
+
+
+
+
+
+
+
+
+
+
+// const Allsuggetions = () => {
+//   // Replace this with actual content
+//   // return <div className="settings-content" style={{ width: '900px' }}>
+
+//   //   <div className="user-details">
+//   //     <div className="form-field">
+//   //       <label for="newpass">New Password</label>
+//   //       <input type="password" placeholder='Enter your new password' name="" id="" />
+//   //     </div>
+//   //     <div className="form-field">
+//   //       <label for="conpass">Confirm Password</label>
+//   //       <input type="password" placeholder='Enter confirm password' name="" id="" />
+//   //     </div>
+//   //   </div>
+
+//   //   <div className="settings-footer">
+//   //     <button className="btn-save">Save changes</button>
+//   //     {/* <button className="btn-cancel">Cancel</button> */}
+//   //   </div>
+//   // </div>
+
+
+//   return {prof.occupation=="Educator"?
+//   <div className="settings-content" style={{ width: '900px' }}>
+
+//     <div className="user-details">
+//       <div className="form-field">
+//          <label for="newpass">New Password</label>
+//         <input type="password" placeholder='Enter your new password' name="" id="" />
+//       </div>
+//       <div className="form-field">
+//         <label for="conpass">Confirm Password</label>
+//         <input type="password" placeholder='Enter confirm password' name="" id="" />
+//       </div>
+//     </div>
+
+//     <div className="settings-footer">
+//       <button className="btn-save">Save changes</button>
+//       {/* <button className="btn-cancel">Cancel</button> */}
+//     </div>
+//   </div> : <h1> You are not allowed to see all suggestion </h1>
+//   }
+// };
 
 
 
