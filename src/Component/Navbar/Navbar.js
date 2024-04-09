@@ -11,7 +11,7 @@ const Header = () => {
   const { user, isAuthenticated, isLoading } = useAuth0();
 
   // onSignupSubmit
-
+  //submit
   
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
