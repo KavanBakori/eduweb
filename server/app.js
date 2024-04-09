@@ -76,7 +76,7 @@ app.post('/login', async(req,res) => {
     return res.status(400).json("Invalid Password");
   }
 
-  if(userExist.role == lrole){
+  if(userExist.role === lrole){
     const token =jwt.sign({email:userExist.email, role:userExist.role, id:userExist._id, name:userExist.name}, SECRET_KEY);
   res.status(201).json({token:token ,  user: userExist}) ;
   }else{
@@ -139,7 +139,8 @@ app.get('/fetchsuggetion', async(req,res) => {
 // Profile update***************************************************************************************************************
 app.put('/profile', async (req, res) => {
   try {
-    const { email, phone, role } = req.body;
+    console.log(req.body);
+    const { email, phone, role,name } = req.body;
 
     // Check if the profile with the specified email exists
     let updatedProfile;
@@ -160,11 +161,11 @@ app.put('/profile', async (req, res) => {
     } else {
       // If the profile doesn't exist, create a new one
       updatedProfile = await new Profile({
-        username: username,
-        fullname: fullname,
+        username: name,
+        // fullname: fullname,
         email: email,
         phone: phone,
-        occupation: occupation
+        occupation: role
       }).save();
     }
     res.status(200).json(updatedProfile);
@@ -225,7 +226,7 @@ app.post('/videoupload', async (req, res) => {
 
   try {
     // Assuming UploadvideoModel is your Mongoose model for video uploads
-    const pick = new UploadvideoModel({
+    const pick = new Uploadvideo({
       uploadname,
       uploaddes,
       uploadtime,
