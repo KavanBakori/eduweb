@@ -39,9 +39,9 @@ const profileSchema = new Schema({
     username: {
         type: String,
     },
-    fullname: {
-        type: String,
-    },
+    // fullname: {
+    //     type: String,
+    // },
     email: {
         type: String,
     },
@@ -95,7 +95,7 @@ module.exports = {
     Uploadvideo: mongoose.model('uploadvideo', UploadvideoSchema),
     connectToDatabase: async () => {
         try {
-            await mongoose.connect('mongodb://127.0.0.1:27017/anilearn', {
+            await mongoose.connect('mongodb+srv://kavan2269:r0M4hRbLLZExonnO@kavan.ybbof1e.mongodb.net/?retryWrites=true&w=majority&appName=Kavan', {
 
             });
             console.log('Connected to MongoDB');
