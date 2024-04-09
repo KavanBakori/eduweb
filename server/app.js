@@ -167,7 +167,6 @@ app.put('/profile', async (req, res) => {
         occupation: occupation
       }).save();
     }
-
     res.status(200).json(updatedProfile);
   } catch (error) {
     console.error('Error updating/creating profile:', error);
@@ -201,7 +200,7 @@ app.post('/picked', async(req,res)=>{
       console.log(picked);
       res.status(200).json(picked);
     }catch(e){
-      console.error('Error picking topic:', error);
+      console.error('Error picking topic:', e);
     res.status(500).json({ error: 'An error occurred' });
     }
 })
