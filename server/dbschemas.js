@@ -20,61 +20,79 @@ const signupSchema = new Schema({
         type: String,
         require: true,
     },
-}); 
+});
 
 
 const suggestionSchema = new Schema({
-    topicname:{
+    topicname: {
         type: String,
-        required:true
+        required: true
     },
-    topicdes:{
+    topicdes: {
         type: String,
-        required:true
+        required: true
     }
 });
 
 
 const profileSchema = new Schema({
-    username:{
-        type:String,
+    username: {
+        type: String,
     },
-    fullname:{
-        type:String,
+    fullname: {
+        type: String,
     },
-    email:{
-        type:String,
+    email: {
+        type: String,
     },
-    phone:{
-        type:Number,
+    phone: {
+        type: Number,
     },
-    occupation:{
-        type:String,
+    occupation: {
+        type: String,
     },
 })
 
 
 const PickedtopicsSchema = new Schema({
-    Educatoremail:{
+    Educatoremail: {
         type: String,
     },
-    picked:{
+    picked: {
         type: Boolean,
     },
-    topicname:{
+    topicname: {
         type: String,
     },
     topicdes: {
-        type:String,
+        type: String,
     }
 })
 
 
-module.exports = { 
+
+const UploadvideoSchema = new Schema({
+    uploadname: {
+        type: String,
+    },
+    uploaddes: {
+        type: String,
+    },
+    uploadtime: {
+        type: String,
+    },
+    videolink: {
+        type: String,
+    },
+})
+
+
+module.exports = {
     Signup: mongoose.model('Signup', signupSchema),
     Suggestion: mongoose.model('suggestion', suggestionSchema),
     Profile: mongoose.model('profile', profileSchema),
     Pickedtopic: mongoose.model('Pickedtopic', PickedtopicsSchema),
+    Uploadvideo: mongoose.model('uploadvideo', UploadvideoSchema),
     connectToDatabase: async () => {
         try {
             await mongoose.connect('mongodb://127.0.0.1:27017/anilearn', {

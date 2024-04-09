@@ -12,8 +12,9 @@ import Start from '../../Component/courseform/start'
 const Profile = () => {
   const [activeTab, setActiveTab] = useState('general');
   const location = useLocation();
-  const name = location.state.name;
-  const email = location.state.email;
+const name = location.state ? location.state.name : '';
+const email = location.state ? location.state.email : '';
+
 
   const [prof, setProfile] = useState([]);
 
@@ -248,22 +249,102 @@ const Pickedtopics = ({email}) => {
 
 
 const Uploadvideo = () => {
+  const[form, setForm] = useState({});
+
+  const handleform = (e) => {
+    setForm(prevForm => ({
+      ...prevForm,
+      [e.target.name]: e.target.value,
+    }));
+  }
+
+
+  const [fileName, setFileName] = useState('Browse Files');
+  const [file, setFile] = useState(null);
+  const [secure_url, setsecure_url] = useState("");
+
+  const handleFileChange = (event) => {
+    const selectedFile = event.target.files[0];
+    setFile(selectedFile);
+    setFileName(selectedFile.name);
+  };
+
+  const handleUpload = async () => {
+    if (!file) {
+      console.error("No file selected");
+      return;
+    }
+
+    const data = new FormData();
+    data.append("file", file);
+    data.append('upload_preset', 'videoes_preset');
+    try {
+      const api = `https://api.cloudinary.com/v1_1/dvy3tlqix/video/upload`;
+      const res = await axios.post(api, data);
+      const { secure_url } = res.data;
+      console.log(secure_url);
+      setsecure_url(secure_url);
+      alert("Hello")
+
+    } catch (error) {
+      console.error("Error uploading file:", error);
+      alert("Helloerror")
+
+    }
+
+
+
+    try{
+      const sendvideo = await  fetch('http://localhost:3002/videoupload', {
+        method: 'POST',
+        body: JSON.stringify({"videolink": secure_url, "uploadname":form.uploadname, "uploaddes":form.uploaddes, "uploadtime":form.uploadtime}),
+        headers: {'Content-Type': 'application/json'},
+      });
+      if (sendvideo.ok) {
+        alert('Your video has been sent successfully');
+      } else {
+        alert('Failed to send suggestion');
+      }
+    } catch (error) {
+      console.error('Error submitting suggestion:', error);
+      alert('An error occurred while submitting your suggestion');
+    }
+  };
+  
+
     return (
       <>
-       <form action="#" className="form">
-          <h1>Details of Your Promo video</h1>
-
-          <div className="input-box">
-            <h3>Name of your Promo Video</h3>
-            <input type="text" name='resname' style={{ width: '97%' }}  placeholder="Enter the name of your video" required />
+       <div className='start' >
+      <div className="container" >
+          <form action="#" className="form">
+          <p>{JSON.stringify(form)}</p>
+            <h1>Details of Your video</h1>
+            <div className="input-box">
+            <h3>Name of your Topic</h3>
+            <input type="text" name='topicname' onChange={handleform} style={{ width: '97%' }} placeholder="Enter the name of your video"  />
             <br />
-            <h3>Video Description</h3>
-            <input type="text" name='tagline' style={{ width: '97%' }}  placeholder="Enter the description of your promo video" />
+            <h3>Topic Description</h3>
+            <input type="text" name='topicdes' onChange={handleform} style={{ width: '97%' }} placeholder="Enter the description of your promo video" />
+            <br />
+            <h3>Duretion of Video</h3>
+            <input type="number" name='topictime' onChange={handleform} style={{ width: '97%' }} placeholder="hh:mm" />
             <br />
           </div>
-          <h3>Upload your video here</h3>
-          <UploadVideoComponent/>
-        </form>
+            <h3>Upload your video here</h3>
+            <label htmlFor="custom-file-upload" className="filupp">
+        <span style={{ color: 'white' }} className="filupp-file-name js-value">{fileName}</span>
+        <input
+          type="file"
+          name="attachment-file"
+          id="custom-file-upload"
+          onChange={handleFileChange}
+        />
+     </label>
+      <br />
+      <button style={{backgroundColor:'#1AB79D',paddingInline:'40px',paddingTop:'10px',paddingBottom:'10px',borderRadius:'10px',color:'white'}} onClick={handleUpload}>Upload</button>
+          </form>
+      </div>
+    </div>
       </>
     );
 }

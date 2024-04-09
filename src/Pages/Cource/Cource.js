@@ -40,10 +40,9 @@ const Cource = () => {
                             </section>
                             {/* BUTTON FOR PAYMENT */}
                             <div >
-                                <a href="/" className="btn has-before " style={{marginTop:"40px",marginLeft:"20px",padding:"10px 60px"}}>
-                                    <span className="span_btn">Enroll Now</span>
-                                    <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
-                                </a>
+                            <button className="btn btn-primary" onClick={() => window.location.href = 'https://rzp.io/l/sY8S6Kh'}>
+  Enroll Now
+</button>
                             </div>
                         </div>
                     </div>

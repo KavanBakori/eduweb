@@ -90,7 +90,7 @@ const Cources = () => {
               <span className="badge">Advanced</span>
 
               <h3 className="h3">
-                <a href="#" className="card-title">Java Programming Masterclass for Software Developers</a>
+                <a href="/cource/java" className="card-title">Mastering Web Development: From Basics to Advanced Techniques</a>
               </h3>
 
               <div className="wrapper">

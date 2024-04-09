@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const { Signup,Suggestion,Profile,Pickedtopic, connectToDatabase } = require('./dbschemas');
+const { Signup,Suggestion,Profile,Pickedtopic,Uploadvideo, connectToDatabase } = require('./dbschemas');
 const bcrypt =  require('bcrypt');
 const SECRET_KEY = "NOTESAPI";
 const jwt = require("jsonwebtoken");
@@ -217,6 +217,29 @@ app.get('/fetchpicked', async(req,res)=>{
     console.log(e);
   }
 })
+
+
+
+// Videoupload8************************************************************************************************************
+app.post('/videoupload', async (req, res) => {
+  const { uploadname, uploaddes, uploadtime, videolink } = req.body;
+
+  try {
+    // Assuming UploadvideoModel is your Mongoose model for video uploads
+    const pick = new UploadvideoModel({
+      uploadname,
+      uploaddes,
+      uploadtime,
+      videolink,
+    });
+    const picked = await pick.save();
+    console.log(picked);
+    res.status(200).json(picked);    
+  } catch (error) {
+    console.error('Error picking topic:', error);
+    res.status(500).json({ error: 'An error occurred' });
+  }
+});
 
 
 
