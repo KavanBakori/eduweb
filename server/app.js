@@ -139,41 +139,39 @@ app.get('/fetchsuggetion', async(req,res) => {
 // Profile update***************************************************************************************************************
 app.put('/profile', async (req, res) => {
   try {
-    const { email, phone, role } = req.body;
+    const { email, phone, role, name } = req.body;
 
     // Check if the profile with the specified email exists
     let updatedProfile;
-    const existingProfile = await Profile.findOne({ email: email });
+    const existingProfile = await Profile.findOne({ email });
 
     if (existingProfile) {
-      // If the profile exists, update its fields
+      // Update profile if it exists
       updatedProfile = await Profile.findOneAndUpdate(
-        { email: email },
-        {
-          $set: {
-            phone: phone,
-            occupation: role
-          }
-        },
+        { email},
+        { $set: { phone, occupation: role } },
         { new: true }
       );
     } else {
-      // If the profile doesn't exist, create a new one
+      // Create a new profile if it doesn't exist
       updatedProfile = await new Profile({
-        username: username,
-        fullname: fullname,
-        email: email,
-        phone: phone,
-        occupation: occupation
+        email,
+        phone,
+        occupation: role,
+        // Include fullname if it's part of the schema
+        ...(name && { username: name }),
       }).save();
     }
 
+    console.log(updatedProfile);
     res.status(200).json(updatedProfile);
   } catch (error) {
     console.error('Error updating/creating profile:', error);
     res.status(500).json({ error: 'An error occurred' });
   }
 });
+
+
 app.get('/fetchprofile', async(req,res)=>{
     try{
       const prof = await Profile.find();

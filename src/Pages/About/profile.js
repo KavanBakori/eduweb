@@ -146,7 +146,7 @@ const GeneralTabContent = ({ name, email }) => {
   const handleSave = async () => {
     try {
       if (email && role && phone) {
-        const response = await axios.put('http://localhost:3002/profile', { email, role, phone });
+        const response = await axios.put('http://localhost:3002/profile', {name, email, role, phone });
         console.log(response);
       } else {
         console.error('Error: email, role, or phone is missing.');
