@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './about.css';
 import Navbar from '../../Component/Navbar/Navbar';
 import Picked from '../../Component/pickedtopics/picked'
@@ -6,7 +6,7 @@ import Studentsuggetion from '../../Component/studentsuggetion/studentsuggetion'
 import axios from 'axios';
 import { useLocation } from 'react-router-dom';
 import Allsuggetions from '../allsuggetions/allsuggetions';
-import UploadVideoComponent from '../../Component/uploadvideo/upload'
+// import UploadVideoComponent from '../../Component/uploadvideo/upload'
 import Start from '../../Component/courseform/start'
 
 const Profile = () => {
@@ -123,7 +123,6 @@ const GeneralTabContent = ({ name, email }) => {
   // const [form, setForm] = useState({});
   const [role, setrole] = useState("");
   const [phone, setPhone] = useState("");
-  console.log(prof);
   useEffect(() => {
     axios
       .get('http://localhost:3002/fetchprofile')
@@ -265,7 +264,8 @@ const Uploadvideo = () => {
     setFileName(selectedFile.name);
   };
 
-  const handleUpload = async () => {
+  const handleUpload = async (e) => {
+    e.preventDefault();
     if (!file) {
       console.error("No file selected");
       return;
@@ -278,14 +278,14 @@ const Uploadvideo = () => {
       const api = `https://api.cloudinary.com/v1_1/dvy3tlqix/video/upload`;
       const res = await axios.post(api, data);
       const { secure_url } = res.data;
-      console.log(secure_url);
+      if(!secure_url) {alert('reupload video'); return;}
+     // console.log(secure_url);
       setsecure_url(secure_url);
       alert("Hello")
-
+      console.log(secure_url);
     } catch (error) {
       console.error("Error uploading file:", error);
-      alert("Helloerror")
-
+      alert("Helloerror");
     }
 
 
@@ -296,6 +296,7 @@ const Uploadvideo = () => {
         body: JSON.stringify({ "videolink": secure_url, "uploadname": form.uploadname, "uploaddes": form.uploaddes, "uploadtime": form.uploadtime }),
         headers: { 'Content-Type': 'application/json' },
       });
+      console.log(sendvideo);
       if (sendvideo.ok) {
         alert('Your video has been sent successfully');
       } else {
@@ -338,7 +339,10 @@ const Uploadvideo = () => {
               />
             </label>
             <br />
-            <button style={{ backgroundColor: '#1AB79D', paddingInline: '40px', paddingTop: '10px', paddingBottom: '10px', borderRadius: '10px', color: 'white' }} onClick={handleUpload}>Upload</button>
+            <button 
+            style={
+              { backgroundColor: '#1AB79D', 
+              paddingInline: '40px', paddingTop: '10px', paddingBottom: '10px', borderRadius: '10px', color: 'white' }} onClick={handleUpload}>Upload</button>
           </form>
         </div>
       </div>

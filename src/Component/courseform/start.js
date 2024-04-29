@@ -7,7 +7,7 @@ import UploadVideoComponent from '../uploadvideo/upload'
 
 
 function Start() {
-
+  console.log('start');
   const [form, setForm] = useState([]);
   const [value, setvalue] = useState([]);
 
