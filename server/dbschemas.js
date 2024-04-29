@@ -72,16 +72,16 @@ const PickedtopicsSchema = new Schema({
 
 
 const UploadvideoSchema = new Schema({
-    uploadname: {
+    secure_url: {
         type: String,
     },
-    uploaddes: {
+    topicname: {
         type: String,
     },
-    uploadtime: {
+    topicdes: {
         type: String,
     },
-    videolink: {
+    topictime: {
         type: String,
     },
 })

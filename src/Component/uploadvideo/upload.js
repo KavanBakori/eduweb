@@ -3,6 +3,7 @@ import './upload.css'; // assuming your CSS file is named 'styles.css'
 import axios from 'axios';
 
 function FileUpload({form}) {
+  console.log('fileupload');
   const [fileName, setFileName] = useState('Browse Files');
   const [file, setFile] = useState(null);
   const [secure_url, setsecure_url] = useState("");
@@ -12,8 +13,10 @@ function FileUpload({form}) {
     setFile(selectedFile);
     setFileName(selectedFile.name);
   };
-
-  const handleUpload = async () => {
+  
+  const handleUpload = async (e) => {
+    e.preventDefault();
+    console.log(file);
     if (!file) {
       console.error("No file selected");
       return;
@@ -35,8 +38,10 @@ function FileUpload({form}) {
 
 
     try{
+      console.log(secure_url);
       const sendvideo = await  fetch('/videoupload', {
         method: 'POST',
+        //why username in this file not username ,not upload video desc, and not upload time
         body: JSON.stringify({"videolink": secure_url, "uploadname":form.uploadname, "uploaddes":form.uploaddes, "uploadtime":form.uploadtime}),
         headers: {'Content-Type': 'application/json'},
       });

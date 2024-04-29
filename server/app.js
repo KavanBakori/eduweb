@@ -76,7 +76,7 @@ app.post('/login', async(req,res) => {
     return res.status(400).json("Invalid Password");
   }
 
-  if(userExist.role == lrole){
+  if(userExist.role === lrole){
     const token =jwt.sign({email:userExist.email, role:userExist.role, id:userExist._id, name:userExist.name}, SECRET_KEY);
   res.status(201).json({token:token ,  user: userExist}) ;
   }else{
@@ -202,7 +202,7 @@ app.post('/picked', async(req,res)=>{
       const deletedEntry = await Suggestion.findOneAndDelete({topicname,topicdes });
     
     }catch(e){
-      console.error('Error picking topic:', error);
+      console.error('Error picking topic:', e);
     res.status(500).json({ error: 'An error occurred' });
     }
 })
@@ -218,24 +218,26 @@ app.get('/fetchpicked', async(req,res)=>{
 
 
 
-// Videoupload8************************************************************************************************************
+// Videoupload************************************************************************************************************
 app.post('/videoupload', async (req, res) => {
-  const { uploadname, uploaddes, uploadtime, videolink } = req.body;
 
+  const { secure_url, topicname, topicdes, topictime } = req.body;
+
+  console.log(secure_url);
   try {
-    // Assuming UploadvideoModel is your Mongoose model for video uploads
-    const pick = new UploadvideoModel({
-      uploadname,
-      uploaddes,
-      uploadtime,
-      videolink,
+    // Save data to MongoDB
+    const video = new Uploadvideo({
+      secure_url:secure_url,
+      topicname:topicname,
+      topicdes:topicdes,
+      topictime:topictime,
     });
-    const picked = await pick.save();
-    console.log(picked);
-    res.status(200).json(picked);    
+    const  savedVideo = await video.save();
+    console.error(savedVideo);
+    res.status(201).json({ message: 'Video uploaded successfully' });
   } catch (error) {
-    console.error('Error picking topic:', error);
-    res.status(500).json({ error: 'An error occurred' });
+    console.error('Error uploading video:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
   }
 });
 
