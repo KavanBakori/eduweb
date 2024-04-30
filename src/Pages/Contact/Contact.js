@@ -1,40 +1,37 @@
 // ContactUsPage.js
 
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import './Contact.css';
 import Footer from '../../Component/Footer/Footer';
 import Navbar from '../../Component/Navbar/Navbar';
- // Import your success image
+import emailjs from '@emailjs/browser';
+
+// Import your success image
 
 const ContactUsPage = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  });
+  const form = useRef();
   const [submitted, setSubmitted] = useState(false);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value
-    });
-  };
+
 
   const handleSubmit = (e) => {
+    console.log(2);
     e.preventDefault();
     // Add logic to handle form submission, like sending data to a server
-    console.log(formData);
+    emailjs
+      .sendForm(process.env.REACT_APP_SER, process.env.REACT_APP_TEMP, form.current, {
+        publicKey: process.env.REACT_APP_KEY,
+      })
+      .then(
+        () => {
+          console.log('SUCCESS!');
+          setSubmitted(true);
+        },
+        (error) => {
+          console.log('FAILED...', error);
+        },
+      );
     // Clear form after submission
-    setFormData({
-      name: '',
-      email: '',
-      subject: '',
-      message: ''
-    });
-    setSubmitted(true);
     setTimeout(() => {
       setSubmitted(false);
     }, 3000); // Reset submitted state after 3 seconds
@@ -42,45 +39,56 @@ const ContactUsPage = () => {
 
   return (
     <>
-    <Navbar></Navbar>
-    <div style={{marginTop:'100px'}}>
-    <div className="contact-us-container">
-      <div className="left-side">
-        <img src='/images/2761902.jpg' alt="Success" />
-      </div>
-      <div className="right-side">
-        {!submitted ? (
-          <>
-            <h1>Contact Us</h1>
-            <form onSubmit={handleSubmit}>
-              <div className="form-group">
-                <label>Name:</label>
-                <input type="text" name="name" value={formData.name} onChange={handleChange} />
-              </div>
-              <div className="form-group">
-                <label>Email:</label>
-                <input type="email" name="email" value={formData.email} onChange={handleChange} />
-              </div>
-              <div className="form-group">
-                <label>Subject:</label>
-                <input type="text" name="subject" value={formData.subject} onChange={handleChange} />
-              </div>
-              <div className="form-group">
-                <label>Message:</label>
-                <textarea name="message" value={formData.message} onChange={handleChange} />
-              </div>
-              <button type="submit">Submit</button>
-            </form>
-          </>
-        ) : (
-          <div className="success-message">
-            <p>Thank you for your message!</p>
+      <Navbar></Navbar>
+      <div style={{ marginTop: '100px' }}>
+        <div className="contact-us-container">
+          <div className="left-side">
+            <img src='/images/2761902.jpg' alt="Success" />
           </div>
-        )}
+          <div className="right-side">
+            {!submitted ? (
+              <>
+                <h1>Contact Us</h1>
+                {/* <form onSubmit={handleSubmit}>
+                  <div className="form-group">
+                    <label>Name:</label>
+                    <input type="text" name="name" value={formData.name} onChange={handleChange} />
+                  </div>
+                  <div className="form-group">
+                    <label>Email:</label>
+                    <input type="email" name="email" value={formData.email} onChange={handleChange} />
+                  </div>
+                  <div className="form-group">
+                    <label>Message:</label>
+                    <textarea name="message" value={formData.message} onChange={handleChange} />
+                  </div>
+                  <button type="submit">Submit</button>
+                </form> */}
+                <form ref={form} onSubmit={handleSubmit}>
+                  <div className="form-group">
+                    <label>Name</label>
+                    <input type="text" name="from_name" />
+                  </div>
+                  <div className="form-group">
+                    <label>Email</label>
+                    <input type="email" name="from_email" />
+                  </div>
+                  <div className="form-group">
+                    <label>Message</label>
+                    <textarea name="message" />
+                  </div>
+                  <input type="submit" value="Send" />
+                </form>
+              </>
+            ) : (
+              <div className="success-message">
+                <p>Thank you for your message!</p>
+              </div>
+            )}
+          </div>
+        </div>
       </div>
-    </div>
-    </div>
-    <Footer></Footer>
+      <Footer></Footer>
     </>
   );
 };
