@@ -241,6 +241,15 @@ app.post('/videoupload', async (req, res) => {
   }
 });
 
+app.get('/fetchupload',async(req, res) => {
+  try{
+    const video = await Uploadvideo.find();
+    res.json(video);
+  }catch(e){
+    console.log(e);
+  }
+})
+
 
 
 app.get('/', (req, res) => {

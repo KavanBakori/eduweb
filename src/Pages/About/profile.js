@@ -325,8 +325,8 @@ const Uploadvideo = () => {
             <h3>Topic Description</h3>
             <input type="text" name='topicdes' onChange={handleform} style={{ width: '97%' }} placeholder="Enter the description of your promo video" />
             <br />
-            <h3>Duretion of Video</h3>
-            <input type="number" name='topictime' onChange={handleform} style={{ width: '97%' }} placeholder="hh:mm" />
+            <h3>Duration of Video</h3>
+            <input type="number" name='topictime' onChange={handleform} style={{ width: '97%' }} placeholder="in minutes" />
             <br />
           </div>
             <h3>Upload your video here</h3>
