@@ -7,7 +7,7 @@ import UploadVideoComponent from '../uploadvideo/upload'
 
 
 function Start() {
-
+  console.log('start');
   const [form, setForm] = useState([]);
   const [value, setvalue] = useState([]);
 
@@ -121,14 +121,14 @@ function Start() {
               <input type="text" name='text' style={{ width: '97%' }} placeholder="Enter your course description" />
             </div>
             <br />
-            <h3>Course Description</h3>
+            <h3>Category of your Course</h3>
             <div className="select-box" >
               <select name='Category' style={{fontSize:'13px'}}>
                 <option hidden >Category</option>
-                <option value={'Devops'}>Devops</option>
-                <option value={'Development'}>Development</option>
-                <option value={'Cyber Security'}>Cyber Security</option>
-                <option value={'Data Science'}>Data Science</option>
+                <option value='Devops'>Devops</option>
+                <option value='Development'>Development</option>
+                <option value='Cyber Security'>Cyber Security</option>
+                <option value='Data Science'>Data Science</option>
               </select>
             </div>
             <div className="column">

@@ -218,24 +218,26 @@ app.get('/fetchpicked', async(req,res)=>{
 
 
 
-// Videoupload8************************************************************************************************************
+// Videoupload************************************************************************************************************
 app.post('/videoupload', async (req, res) => {
-  const { uploadname, uploaddes, uploadtime, videolink } = req.body;
 
+  const { secure_url, topicname, topicdes, topictime } = req.body;
+
+  console.log(secure_url);
   try {
-    // Assuming UploadvideoModel is your Mongoose model for video uploads
-    const pick = new Uploadvideo({
-      uploadname,
-      uploaddes,
-      uploadtime,
-      videolink,
+    // Save data to MongoDB
+    const video = new Uploadvideo({
+      secure_url:secure_url,
+      topicname:topicname,
+      topicdes:topicdes,
+      topictime:topictime,
     });
-    const picked = await pick.save();
-    console.log(picked);
-    res.status(200).json(picked);    
+    const  savedVideo = await video.save();
+    console.error(savedVideo);
+    res.status(201).json({ message: 'Video uploaded successfully' });
   } catch (error) {
-    console.error('Error picking topic:', error);
-    res.status(500).json({ error: 'An error occurred' });
+    console.error('Error uploading video:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
   }
 });
 

@@ -3,7 +3,10 @@ import './About.css';
 
 function AboutSection() {
   return (
-    <section className="section about" id="about" aria-label="about">
+    <>
+    <div id='about'></div>
+    <br /><br />
+    <section className="section about"  aria-label="about">
       <div className="container">
         <figure className="about-banner">
           <div className="img-holder" style={{ '--width': '520', '--height': '370' }}>
@@ -46,6 +49,7 @@ function AboutSection() {
         </div>
       </div>
     </section>
+    </>
   );
 }
 

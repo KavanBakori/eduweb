@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './about.css';
 import Navbar from '../../Component/Navbar/Navbar';
 import Picked from '../../Component/pickedtopics/picked'
@@ -6,7 +6,7 @@ import Studentsuggetion from '../../Component/studentsuggetion/studentsuggetion'
 import axios from 'axios';
 import { useLocation } from 'react-router-dom';
 import Allsuggetions from '../allsuggetions/allsuggetions';
-import UploadVideoComponent from '../../Component/uploadvideo/upload'
+// import UploadVideoComponent from '../../Component/uploadvideo/upload'
 import Start from '../../Component/courseform/start'
 
 const Profile = () => {
@@ -123,7 +123,6 @@ const GeneralTabContent = ({ name, email }) => {
   // const [form, setForm] = useState({});
   const [role, setrole] = useState("");
   const [phone, setPhone] = useState("");
-  console.log(prof);
   useEffect(() => {
     axios
       .get('http://localhost:3002/fetchprofile')
@@ -142,7 +141,7 @@ const GeneralTabContent = ({ name, email }) => {
   const handleSave = async () => {
     try {
       if (email && role && phone) {
-        const response = await axios.put('http://localhost:3002/profile', {name, email, role, phone });
+        const response = await axios.put('http://localhost:3002/profile', { name, email, role, phone });
         console.log(response);
       } else {
         console.error('Error: email, role, or phone is missing.');
@@ -183,8 +182,12 @@ const GeneralTabContent = ({ name, email }) => {
         </div>
         <div className="form-field">
           <label htmlFor="occupation">Occupation</label>
-          <input type="text" onChange={(e) => { setrole(e.target.value) }} name="occupation" placeholder="Student/Educator" required/>
+          <select id="occupation" style={{height:'50px',width:'170px',fontSize:'17px',padding:'4px'}} name="occupation" onChange={(e) => setrole(e.target.value)}>
+            <option value="Student">I'm a Student</option>
+            <option value="Educator">I'm a Educator</option>
+          </select>
         </div>
+
       </div>
       <div className="settings-footer">
         <button onClick={handleSave} className="btn-save">Save changes</button>
@@ -248,10 +251,10 @@ const Uploadvideo = () => {
   const [form, setForm] = useState({});
 
   const handleform = (e) => {
-    setForm(prevForm => ({
-      ...prevForm,
+    setForm({
+      ...form,
       [e.target.name]: e.target.value,
-    }));
+    });
   }
 
 
@@ -265,7 +268,8 @@ const Uploadvideo = () => {
     setFileName(selectedFile.name);
   };
 
-  const handleUpload = async () => {
+  const handleUpload = async (e) => {
+    e.preventDefault();
     if (!file) {
       console.error("No file selected");
       return;
@@ -278,33 +282,32 @@ const Uploadvideo = () => {
       const api = `https://api.cloudinary.com/v1_1/dvy3tlqix/video/upload`;
       const res = await axios.post(api, data);
       const { secure_url } = res.data;
-      console.log(secure_url);
+      if(!secure_url) {alert('reupload video'); return;}
+     console.log(secure_url);
       setsecure_url(secure_url);
       alert("Hello")
-
+      console.log(secure_url);
     } catch (error) {
       console.error("Error uploading file:", error);
-      alert("Helloerror")
-
+      alert("Helloerror");
     }
-
-
-
     try {
       const sendvideo = await fetch('http://localhost:3002/videoupload', {
         method: 'POST',
-        body: JSON.stringify({ "videolink": secure_url, "uploadname": form.uploadname, "uploaddes": form.uploaddes, "uploadtime": form.uploadtime }),
+        body: JSON.stringify({ secure_url, ...form }), // Spread the 'form' object
         headers: { 'Content-Type': 'application/json' },
       });
+      console.log(sendvideo);
       if (sendvideo.ok) {
         alert('Your video has been sent successfully');
       } else {
-        alert('Failed to send suggestion');
+        alert('Failed to send video');
       }
     } catch (error) {
       console.error('Error submitting suggestion:', error);
       alert('An error occurred while submitting your suggestion');
     }
+    
   };
 
 
@@ -316,16 +319,16 @@ const Uploadvideo = () => {
             <p>{JSON.stringify(form)}</p>
             <h1>Details of Your video</h1>
             <div className="input-box">
-              <h3>Name of your Topic</h3>
-              <input type="text" name='topicname' onChange={handleform} style={{ width: '97%' }} placeholder="Enter the name of your video" required/>
-              <br />
-              <h3>Topic Description</h3>
-              <input type="text" name='topicdes' onChange={handleform} style={{ width: '97%' }} placeholder="Enter the description of your promo video" required/>
-              <br />
-              <h3>Duretion of Video</h3>
-              <input type="number" name='topictime' onChange={handleform} style={{ width: '97%' }} placeholder="hh:mm" required/>
-              <br />
-            </div>
+            <h3>Name of your Topic</h3>
+            <input type="text" name='topicname' onChange={handleform} style={{ width: '97%' }} placeholder="Enter the name of your video"  />
+            <br />
+            <h3>Topic Description</h3>
+            <input type="text" name='topicdes' onChange={handleform} style={{ width: '97%' }} placeholder="Enter the description of your promo video" />
+            <br />
+            <h3>Duretion of Video</h3>
+            <input type="number" name='topictime' onChange={handleform} style={{ width: '97%' }} placeholder="hh:mm" />
+            <br />
+          </div>
             <h3>Upload your video here</h3>
             <label htmlFor="custom-file-upload" className="filupp">
               <span style={{ color: 'white' }} className="filupp-file-name js-value">{fileName}</span>
@@ -338,7 +341,10 @@ const Uploadvideo = () => {
               />
             </label>
             <br />
-            <button style={{ backgroundColor: '#1AB79D', paddingInline: '40px', paddingTop: '10px', paddingBottom: '10px', borderRadius: '10px', color: 'white' }} onClick={handleUpload}>Upload</button>
+            <button 
+            style={
+              { backgroundColor: '#1AB79D', 
+              paddingInline: '40px', paddingTop: '10px', paddingBottom: '10px', borderRadius: '10px', color: 'white' }} onClick={handleUpload}>Upload</button>
           </form>
         </div>
       </div>

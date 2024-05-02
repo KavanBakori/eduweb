@@ -4,7 +4,7 @@ const Card = ({ title, description, imageUrl }) => {
     return (
         <div>
             <a
-                href="/"
+                href="https://rzp.io/l/sY8S6Kh"
                 className="card"
             >
                 <img src={imageUrl} alt="" className="image"

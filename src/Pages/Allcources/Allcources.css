@@ -19,7 +19,7 @@
 
 .course-cards {
   
-  width: 350px;
+  width: 30%;
   position: relative;
   background-color: var(--white);
   border-radius: var(--radius-5);
