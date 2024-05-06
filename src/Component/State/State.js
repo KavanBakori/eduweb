@@ -8,29 +8,29 @@ function State() {
         <ul className="grid-list">
           <li>
             <div className="stats-card" style={{ '--color': '170, 75%, 41%' }}>
-              <h3 className="card-title">0</h3>
-              <p className="card-text">Student Enrolled</p>
+              <h3 className="card-title">Step 1</h3>
+              <p className="card-text">Login / SignUp</p>
             </div>
           </li>
 
           <li>
             <div className="stats-card" style={{ '--color': '351, 83%, 61%' }}>
-              <h3 className="card-title">0</h3>
-              <p className="card-text">Class Completed</p>
+              <h3 className="card-title">Step 2</h3>
+              <p className="card-text">Give Suggestions</p>
             </div>
           </li>
 
           <li>
             <div className="stats-card" style={{ '--color': '260, 100%, 67%' }}>
-              <h3 className="card-title">0%</h3>
-              <p className="card-text">Satisfaction Rate</p>
+              <h3 className="card-title">Step 3</h3>
+              <p className="card-text">Enjoy learning</p>
             </div>
           </li>
 
           <li>
             <div className="stats-card" style={{ '--color': '42, 94%, 55%' }}>
-              <h3 className="card-title">0</h3>
-              <p className="card-text">Top Instructors</p>
+              <h3 className="card-title">Step 4</h3>
+              <p className="card-text">Dive into Courses</p>
             </div>
           </li>
         </ul>

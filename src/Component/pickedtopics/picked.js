@@ -77,7 +77,7 @@ const Picked = ({ email }) => {
                     .map((item, index) => (
                         <div className='' style={{ display: 'flex', flexDirection: 'column', padding: '10px', height: 'auto', width: '100%', borderRadius: '10px' }} key={index}>
                             <div className='card-header'>
-                                <h3 className='card-title' style={{ fontSize: '2em' }}>{item.topicname}</h3>
+                                <h3 className='card-title' style={{ fontSize: '2em',color:'black' }}>{item.topicname}</h3>
                                 <h4>Category: {item.suggetioncategory}</h4>
                                 <hr />
                             </div>
@@ -86,7 +86,6 @@ const Picked = ({ email }) => {
                                 <br />
                                 <h3>Duration of Video</h3>
                                 <input type="number" onChange={(e)=>settime(e.target.value)} style={{ width: '97%' }} placeholder="in minutes" />
-                                <br />
                                 <label htmlFor="custom-file-upload" className="filupp">
                                     <span style={{ color: 'white' }} className="filupp-file-name js-value">{fileName}</span>
                                     <input

@@ -18,7 +18,7 @@ function Home() {
       <About />
       <Cources />
       <State />
-      <Blog />
+      {/* <Blog /> */}
       <Footer />
     </>
   )

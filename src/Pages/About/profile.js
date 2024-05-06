@@ -43,7 +43,7 @@ const Profile = () => {
       case 'Uploadvideo':
         return <Uploadvideo email={email} />;
       case 'Uploadcourse':
-        return <Uploadcourse />;
+        return <Uploadcourse email={email} />;
       case 'Myvideo':
         return <Myvideo email={email} />;
       default:
@@ -269,7 +269,7 @@ const Uploadvideo = ({ email }) => {
   }
 
 
-  const [fileName, setFileName] = useState('Browse Files');
+  const [fileName, setFileName] = useState('');
   const [file, setFile] = useState(null);
   const [secure_url, setsecure_url] = useState("");
 
@@ -375,10 +375,10 @@ const Uploadvideo = ({ email }) => {
   );
 }
 
-const Uploadcourse = () => {
+const Uploadcourse = ({email}) => {
   return (
     <>
-      <Start />
+      <Start email={email} />
     </>
   );
 }

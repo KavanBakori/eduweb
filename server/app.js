@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const { Signup,Suggestion,Profile,Pickedtopic,Uploadvideo, connectToDatabase } = require('./dbschemas');
+const { Signup,Suggestion,Profile,Pickedtopic,Uploadvideo,Uploadcourse, connectToDatabase } = require('./dbschemas');
 const bcrypt =  require('bcrypt');
 const SECRET_KEY = "NOTESAPI";
 const jwt = require("jsonwebtoken");
@@ -229,11 +229,10 @@ app.post('/videoupload', async (req, res) => {
 
   
   const { secure_url,email, topicname, topicdes, topictime,videocategory } = req.body;
-  console.log(topictime);
+  // console.log(topictime);
 
-  console.log(secure_url);
+  // console.log(secure_url);
   try {
-    // Save data to MongoDB
     const video = new Uploadvideo({
       secure_url:secure_url,
       videoemail:email,
@@ -259,6 +258,45 @@ app.get('/fetchupload',async(req, res) => {
     console.log(e);
   }
 })
+
+
+
+// courseupload************************************************************************************************************
+app.post('/courseupload', async (req,res)=> {
+  const { secure_url,email, coursetitle, coursedes, coursecategory,coursevideocount, courseduration, courseprice } = req.body;
+
+  try{
+    const course = new Uploadcourse({
+      secure_url:secure_url,
+      courseemail:email,
+      coursetitle:coursetitle,
+      coursedes:coursedes,
+      coursecategory:coursecategory,
+      coursevideocount:coursevideocount,
+      courseduration:courseduration,
+      courseprice:courseprice,
+    })
+
+    const savecourse = await course.save();
+    console.error(savecourse);
+    res.status(201).json({ message: 'Course uploaded successfully' });
+
+  }catch(error){
+    console.error('Error uploading video:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+})
+
+app.get('/fetchcourses',async(req, res) => {
+  try{
+    const course = await Uploadcourse.find();
+    res.json(course);
+  }catch(e){
+    console.log(e);
+  }
+})
+
+
 
 
 

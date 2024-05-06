@@ -30,7 +30,7 @@ function App() {
           <Route path='/about' element={<Aboutus />} />
           <Route path='/videos' element={<Video/>} />
           <Route path='/cource' element={<Allcource></Allcource>} />
-          <Route path='/cource/:courseid' element={<Cource></Cource>} />
+          <Route path='/gotocourse' element={<Cource></Cource>} />
           <Route path='/contact' element={<Contact></Contact>}></Route>
           {/* <Route path='/cource/development' element={<Science></Science>} />
           <Route path='/cource/security' element={<Math></Math>} />

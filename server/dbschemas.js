@@ -81,6 +81,7 @@ const PickedtopicsSchema = new Schema({
 
 
 
+
 const UploadvideoSchema = new Schema({
     secure_url: {
         type: String,
@@ -103,12 +104,42 @@ const UploadvideoSchema = new Schema({
 })
 
 
+const uploadcourseschema = new Schema({
+    secure_url:{
+        type :String ,
+    },
+    courseemail:{
+        type:String,
+    }, 
+    coursetitle:{
+        type:String,
+    }, 
+    coursedes:{
+        type:String,
+    }, 
+    coursecategory:{
+        type:String,
+    }, 
+    coursevideocount:{
+        type:Number,
+    }, 
+    courseduration:{
+        type:Number,
+    }, 
+    courseprice:{
+        type:Number,
+    }, 
+    
+})
+
+
 module.exports = {
     Signup: mongoose.model('Signup', signupSchema),
     Suggestion: mongoose.model('suggestion', suggestionSchema),
     Profile: mongoose.model('profile', profileSchema),
     Pickedtopic: mongoose.model('Pickedtopic', PickedtopicsSchema),
     Uploadvideo: mongoose.model('uploadvideo', UploadvideoSchema),
+    Uploadcourse: mongoose.model('uploadcourse', uploadcourseschema),
     connectToDatabase: async () => {
         try {
             await mongoose.connect('mongodb+srv://kavan2269:r0M4hRbLLZExonnO@kavan.ybbof1e.mongodb.net/?retryWrites=true&w=majority&appName=Kavan', {
