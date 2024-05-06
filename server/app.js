@@ -93,12 +93,13 @@ app.post('/login', async(req,res) => {
 
 // Suggetions***************************************************************************************************************
 app.post('/suggetion', async (req, res) => {
-  const { topicname, topicdes } = req.body;
+  const { topicname, topicdes,suggetioncategory } = req.body;
 
   try {
     const suggestion = new Suggestion({
       topicname: topicname,
       topicdes: topicdes,
+      suggetioncategory: suggetioncategory,
     });
 
     const savedSuggestion = await suggestion.save();
@@ -134,6 +135,10 @@ app.get('/fetchsuggetion', async(req,res) => {
 //     res.status(500).json({ success: false, message: 'Internal Server Error' });
 //   }
 // });
+
+
+
+
 
 
 // Profile update***************************************************************************************************************
@@ -185,12 +190,13 @@ app.get('/fetchprofile', async(req,res)=>{
 
 // picked topics***************************************************************************************************************
 app.post('/picked', async(req,res)=>{
-  const {Educatoremail, topicname, topicdes, email} = req.body;
+  const {Educatoremail, topicname, topicdes, suggetioncategory} = req.body;
 
     try{
       const pick = new Pickedtopic({
         topicname:topicname,
         topicdes:topicdes,
+        suggetioncategory:suggetioncategory,
         Educatoremail:Educatoremail,
         picked:true,
       })
@@ -221,16 +227,20 @@ app.get('/fetchpicked', async(req,res)=>{
 // Videoupload************************************************************************************************************
 app.post('/videoupload', async (req, res) => {
 
-  const { secure_url, topicname, topicdes, topictime } = req.body;
+  
+  const { secure_url,email, topicname, topicdes, topictime,videocategory } = req.body;
+  console.log(topictime);
 
   console.log(secure_url);
   try {
     // Save data to MongoDB
     const video = new Uploadvideo({
       secure_url:secure_url,
+      videoemail:email,
       topicname:topicname,
       topicdes:topicdes,
       topictime:topictime,
+      videocategory:videocategory,
     });
     const  savedVideo = await video.save();
     console.error(savedVideo);

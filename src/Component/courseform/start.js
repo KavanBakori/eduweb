@@ -16,9 +16,10 @@ function Start() {
     setvalue(abc)
   }
 
-  const handlechange = () => {
-
-  }
+  
+const handlechange = (e) => {
+  
+}
 
 
   // const handleForm = (e) => {
@@ -114,16 +115,16 @@ function Start() {
           </div> */}
             <div className="input-box">
               <h3>Course Title</h3>
-              <input type="text" name='text' style={{ width: '97%' }} placeholder="Enter your course title" />
+              <input type="text" name='coursetitle' onChange={handlechange} style={{ width: '97%' }} placeholder="Enter your course title" />
             </div>
             <div className="input-box">
               <h3>Course Description</h3>
-              <input type="text" name='text' style={{ width: '97%' }} placeholder="Enter your course description" />
+              <input type="text" name='coursedes' onChange={handlechange} style={{ width: '97%' }} placeholder="Enter your course description" />
             </div>
             <br />
             <h3>Category of your Course</h3>
             <div className="select-box" >
-              <select name='Category' style={{fontSize:'13px'}}>
+              <select name='coursecategory' onChange={handlechange} style={{fontSize:'13px'}}>
                 <option hidden >Category</option>
                 <option value='Devops'>Devops</option>
                 <option value='Development'>Development</option>
@@ -134,15 +135,15 @@ function Start() {
             <div className="column">
               <div className="input-box">
                 <h3>Numbers of videos</h3>
-                <input type="number" name='phone' placeholder="Enter the total count of videos in your course" />
+                <input type="number" name='coursevideocount' onChange={handlechange} placeholder="Total count of videos" />
               </div>
               <div className="input-box">
-                <h3>Duretion of the course</h3>
-                <input type="number" name='duretion' placeholder="Enter duretion of your course" />
+                <h3>Duration of the course</h3>
+                <input type="number" name='courseduration' onChange={handlechange} placeholder="Enter duration of your course" />
               </div>
               <div className="input-box">
                 <h3>Prize of your course</h3>
-                <input type="number" name='duretion' placeholder="Enter the prize in ₹" required />
+                <input type="number" name='courseprice' onChange={handlechange} placeholder="Enter the prize in ₹" required />
               </div>
             </div>
           </form>

@@ -31,6 +31,10 @@ const suggestionSchema = new Schema({
     topicdes: {
         type: String,
         required: true
+    },
+    suggetioncategory: {
+        type: String,
+        required: true
     }
 });
 
@@ -66,6 +70,12 @@ const PickedtopicsSchema = new Schema({
     },
     topicdes: {
         type: String,
+    },
+    suggetioncategory: {
+        type: String,
+    },
+    topictime: {
+        type: String,
     }
 })
 
@@ -75,6 +85,9 @@ const UploadvideoSchema = new Schema({
     secure_url: {
         type: String,
     },
+    videoemail: {
+        type: String,
+    },
     topicname: {
         type: String,
     },
@@ -82,6 +95,9 @@ const UploadvideoSchema = new Schema({
         type: String,
     },
     topictime: {
+        type: String,
+    },
+    videocategory: {
         type: String,
     },
 })
