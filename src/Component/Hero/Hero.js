@@ -30,11 +30,11 @@ const Hero = () => {
         <figure className="hero-banner">
 
           <div className="img-holder one" style={{'--width': 270, '--height': 300}}>
-            <img src="/images/hero-banner-1.jpg" width="270" height="300" alt="hero banner" className="img-cover" />
+            <img src="/images/visual1.png" style={{backgroundColor:'#f5f2eb'}} width="270" height="300" alt="hero banner" className="img-cover" />
           </div>
 
           <div className="img-holder two" style={{'--width': 240, '--height': 370}}>
-            <img src="/images/hero-banner-2.jpg" width="240" height="370" alt="hero banner" className="img-cover" />
+            <img src="/images/about1.webp" style={{backgroundColor:'#f5f2eb'}} width="240" height="370"  alt="hero banner" className="img-cover" />
           </div>
 
           {/* <img src="/images/hero-shape-1.svg" width="380" height="190" alt="" className="shape hero-shape-1" /> */}

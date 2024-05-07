@@ -2,10 +2,13 @@ import React, { useEffect, useState } from 'react'
 import Navbar from '../Navbar/Navbar';
 import Search from '../search/search';
 import axios from 'axios'
+import Footer from '../Footer/Footer';
 
 function Video() {
 
     const [video, setvideo] = useState([]);
+    const [searchQuery, setSearchQuery] = useState('');
+
 
     useEffect(() => {
         axios
@@ -18,29 +21,59 @@ function Video() {
             });
     }, []);
 
+    const filteredvideo = video.filter((item) => {
+        if (item.topicname) {
+          return item.topicname.toLowerCase().includes(searchQuery.toLowerCase());
+        }
+        return false; // Return false if item.resname is undefined
+      });
+
 
     return (
         <>
             <Navbar />
-            <Search />
+            {/* <Search /> */}
 
-            <div style={{display:'flex',flexWrap:'wrap',columnGap:'50px',rowGap:'20px',justifyContent:'center',marginTop:'50px'}}>
+            <div className='search' style={{ display: 'flex', justifyContent: 'center' }}>
+            <div className="search_box">
+              <input type="text" className="input_search" value={searchQuery}  onChange={(e) => setSearchQuery(e.target.value)} placeholder="Which cource are you looking for?" />
+              <div className="search_btn" ><i className="fas fa-search"></i></div>
+            </div>
+          </div>
+          <br />
+          <section className=" course" style={{ backgroundColor: 'white' }} id="" aria-label="course">
+            <div className="container">
+
+              {/* <p className="section-subtitle">Popular Courses</p> */}
+
+              <h2 className="h2 section-title">Choose a video to begin your journey</h2>
+              </div>
+              </section>
+
+
+            <div style={{display:'flex',flexWrap:'wrap',columnGap:'50px',rowGap:'20px',justifyContent:'center',marginTop:'50px', marginBottom:'50px'}}>
             {
-                video.map((item) => {
+                filteredvideo.map((item) => {
                     return (
-                       
-                           <div class="" style={{ maxWidth: '40rem', boxShadow: 'rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px',borderRadius:'10px', display: 'flex', flexDirection: 'column', padding: '10px', height: 'auto' }}>
-                                <video src={item.secure_url} class="card-img-top" controls></video>
-                                <div class="card-body">
-                                    <h5 class="card-title" style={{ fontSize: '1.5em', color: 'black' }}>{item.topicname}</h5>
-                                    <p class="card-text">{item.topicdes}</p>
-                                    <p class="card-text" style={{fontWeight:'bold'}} >Creator : {item.videoemail}</p>
-                                    <p class="card-text" style={{ fontWeight:'bold', color: 'hsl(170, 75%, 41%)' }}>Duration : {item.topictime}</p>
+
+                        <>
+                        <div className="" style={{  maxWidth: '40rem', boxShadow: 'rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px',borderRadius:'10px', display: 'flex', flexDirection: 'column', padding: '10px', height: 'auto' }}>
+                                <video src={item.secure_url} className="card-img-top" controls></video>
+                                <div className="card-body">
+                                    <h5 className="card-title" style={{ fontSize: '1.5em', color: '#ec4c64' }}>{item.topicname}</h5>
+                                    <p className="card-text">{item.topicdes}</p>
+                                    <p className="card-text" style={{fontWeight:'bold'}} >Creator : {item.videoemail}</p>
+                                    <p className="card-text" style={{color: '#1AB79D' }}>Duration : {item.topictime} min</p>
                                 </div>
                             </div>
+                        </>
+                       
+                          
                     );
                 })}
             </div>
+
+            <Footer/>
 
         </>
     )

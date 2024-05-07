@@ -31,7 +31,7 @@ const Cources = () => {
 
 
   return (
-    <section className="section course" id="courses" aria-label="course">
+    <section className="section course" id="" aria-label="course">
     <div className="container">
 
       <p className="section-subtitle">Popular Courses</p>
@@ -42,7 +42,7 @@ const Cources = () => {
 
       {courses.map((item,index)=>(
 
-        <li>
+        <li style={{backgroundColor:'white',boxShadow:'rgba(0, 0, 0, 0.45) 0px 25px 20px -20px'}}>
           <div className="course-card" onClick={()=>navigateOneCourse(item.coursetitle)}>
 
             <figure className="card-banner img-holder" style={{height: "300px"}}>
@@ -58,7 +58,7 @@ const Cources = () => {
 
             <div className="card-content">
 
-              <span className="badge">Beginner</span>
+              <span className="badge">{item.courselevel}</span>
 
               <h3 className="h3">
                 <a  className="card-title">{item.coursetitle}</a>

@@ -129,6 +129,9 @@ const uploadcourseschema = new Schema({
     courseprice:{
         type:Number,
     }, 
+    courselevel:{
+        type:String,
+    }
     
 })
 

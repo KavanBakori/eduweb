@@ -10,7 +10,7 @@ function AboutSection() {
       <div className="container">
         <figure className="about-banner">
           <div className="img-holder" style={{ '--width': '520', '--height': '370' }}>
-            <img src="images/about-banner.jpg" width="520" height="370" loading="lazy" alt="about banner" className="img-cover" />
+            <img src="images/about.webp" width="520" height="370" loading="lazy" alt="about banner" className="img-cover" />
           </div>
           {/* <img src="images/about-shape-1.svg" width="360" height="420" loading="lazy" alt="" className="shape about-shape-1" /> */}
           {/* <img src="images/about-shape-2.svg" width="371" height="220" loading="lazy" alt="" className="shape about-shape-2" /> */}

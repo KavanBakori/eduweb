@@ -263,7 +263,7 @@ app.get('/fetchupload',async(req, res) => {
 
 // courseupload************************************************************************************************************
 app.post('/courseupload', async (req,res)=> {
-  const { secure_url,email, coursetitle, coursedes, coursecategory,coursevideocount, courseduration, courseprice } = req.body;
+  const { secure_url,email, coursetitle, coursedes, coursecategory,coursevideocount, courseduration, courseprice,courselevel } = req.body;
 
   try{
     const course = new Uploadcourse({
@@ -275,6 +275,7 @@ app.post('/courseupload', async (req,res)=> {
       coursevideocount:coursevideocount,
       courseduration:courseduration,
       courseprice:courseprice,
+      courselevel:courselevel,
     })
 
     const savecourse = await course.save();

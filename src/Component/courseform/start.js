@@ -164,6 +164,15 @@ function Start({email}) {
                 <option value='Data Science'>Data Science</option>
               </select>
             </div>
+            <br />
+            <div className="select-box" >
+              <select name='courselevel' onChange={handleform} style={{ fontSize: '13px' }}>
+                <option hidden >Level of your course</option>
+                <option value='Beginner'>Beginner</option>
+                <option value='Intermediate'>Intermediate</option>
+                <option value='Advance'>Advance</option>
+              </select>
+            </div>
             <div className="column">
               <div className="input-box">
                 <h3>Numbers of videos</h3>
