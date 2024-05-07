@@ -63,6 +63,7 @@ app.post('/signup', async(req,res) => {
      res.status(500).json({err: "Internal Server Error"});
   }
 })
+
 app.post('/login', async(req,res) => {
   const {lemail, lpassword, lrole}= req.body;
  try{

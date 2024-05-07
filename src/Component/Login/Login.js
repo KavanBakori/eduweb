@@ -116,7 +116,7 @@ function Login() {
                             <Components.Input type='password' onChange={(e) => {setlPassword(e.target.value)}} placeholder='Password' />
                             <Components.Input type='role' onChange={(e) => {setlRole(e.target.value)}} name="role" placeholder='Student/Educator/Admin' />
                             <Components.Anchor href='#'>Forgot your password?</Components.Anchor>
-                            <Components.Button onClick={handlelogin}>Sigin In</Components.Button>
+                            <Components.Button onClick={handlelogin}>Sign In</Components.Button>
                         </Components.Form>
                     </Components.SignInContainer>
 
@@ -139,7 +139,7 @@ function Login() {
                                     Enter Your personal details and start journey with us
                                 </Components.Paragraph>
                                 <Components.GhostButton onClick={() => toggle(false)}>
-                                    Sigin Up
+                                    Sign Up
                                 </Components.GhostButton>
                             </Components.RightOverlayPanel>
                         </Components.Overlay>
