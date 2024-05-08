@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './about.css';
 import Navbar from '../../Component/Navbar/Navbar';
 import Picked from '../../Component/pickedtopics/picked'
+import Myvideos from '../../Component/myvideos/myvideo'
 import Studentsuggetion from '../../Component/studentsuggetion/studentsuggetion';
 import axios from 'axios';
 import { useLocation } from 'react-router-dom';
@@ -40,9 +41,11 @@ const Profile = () => {
       case 'Pickedtopics':
         return <Pickedtopics email={email} />;
       case 'Uploadvideo':
-        return <Uploadvideo />;
+        return <Uploadvideo email={email} />;
       case 'Uploadcourse':
-        return <Uploadcourse />;
+        return <Uploadcourse email={email} />;
+      case 'Myvideo':
+        return <Myvideo email={email} />;
       default:
         return null;
     }
@@ -90,6 +93,12 @@ const Profile = () => {
                         className={`settings-item ${activeTab === 'Uploadcourse' ? 'active' : ''}`}
                         onClick={() => setActiveTab('Uploadcourse')}>
                         Upload Course
+                      </li>
+                      <li
+                        key={index} // Ensure each list item has a unique key
+                        className={`settings-item ${activeTab === 'Myvideo' ? 'active' : ''}`}
+                        onClick={() => setActiveTab('Myvideo')}>
+                        My Videos
                       </li>
                     </>
                   );
@@ -274,8 +283,10 @@ const Pickedtopics = ({ email }) => {
 }
 
 
-const Uploadvideo = () => {
+const Uploadvideo = ({ email }) => {
   const [form, setForm] = useState({});
+
+
 
   const handleform = (e) => {
     setForm({
@@ -285,7 +296,7 @@ const Uploadvideo = () => {
   }
 
 
-  const [fileName, setFileName] = useState('Browse Files');
+  const [fileName, setFileName] = useState('');
   const [file, setFile] = useState(null);
   const [secure_url, setsecure_url] = useState("");
 
@@ -311,6 +322,8 @@ const Uploadvideo = () => {
       const { secure_url } = res.data;
       if (!secure_url) { alert('reupload video'); return; }
       console.log(secure_url);
+      if (!secure_url) { alert('reupload video'); return; }
+      console.log(secure_url);
       setsecure_url(secure_url);
       alert("Hello")
       console.log(secure_url);
@@ -321,7 +334,7 @@ const Uploadvideo = () => {
     try {
       const sendvideo = await fetch('http://localhost:3002/videoupload', {
         method: 'POST',
-        body: JSON.stringify({ secure_url, ...form }), // Spread the 'form' object
+        body: JSON.stringify({ secure_url, email, ...form }), // Spread the 'form' object
         headers: { 'Content-Type': 'application/json' },
       });
       console.log(sendvideo);
@@ -335,6 +348,7 @@ const Uploadvideo = () => {
       alert('An error occurred while submitting your suggestion');
     }
 
+
   };
 
 
@@ -343,7 +357,6 @@ const Uploadvideo = () => {
       <div className='start' >
         <div className="container" >
           <form action="#" className="form">
-            <p>{JSON.stringify(form)}</p>
             <h1>Details of Your video</h1>
             <div className="input-box">
               <h3>Name of your Topic</h3>
@@ -352,10 +365,21 @@ const Uploadvideo = () => {
               <h3>Topic Description</h3>
               <input type="text" name='topicdes' onChange={handleform} style={{ width: '97%' }} placeholder="Enter the description of your promo video" />
               <br />
-              <h3>Duretion of Video</h3>
-              <input type="number" name='topictime' onChange={handleform} style={{ width: '97%' }} placeholder="hh:mm" />
+              <h3>Duration of Video</h3>
+              <input type="number" name='topictime' onChange={handleform} style={{ width: '97%' }} placeholder="in minutes" />
               <br />
+              <h3>Category of your Course</h3>
+              <div className="select-box" >
+                <select name='videocategory' onChange={handleform} style={{ fontSize: '13px' }}>
+                  <option hidden >Category</option>
+                  <option value='Devops'>Devops</option>
+                  <option value='Development'>Development</option>
+                  <option value='Cyber Security'>Cyber Security</option>
+                  <option value='Data Science'>Data Science</option>
+                </select>
+              </div>
             </div>
+            <br />
             <h3>Upload your video here</h3>
             <label htmlFor="custom-file-upload" className="filupp">
               <span style={{ color: 'white' }} className="filupp-file-name js-value">{fileName}</span>
@@ -381,10 +405,17 @@ const Uploadvideo = () => {
   );
 }
 
-const Uploadcourse = () => {
+const Uploadcourse = ({email}) => {
   return (
     <>
-      <Start />
+      <Start email={email} />
+    </>
+  );
+}
+const Myvideo = ({ email }) => {
+  return (
+    <>
+      <Myvideos email={email} />
     </>
   );
 }

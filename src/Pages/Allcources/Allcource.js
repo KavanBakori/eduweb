@@ -1,11 +1,14 @@
-import React, { useState ,  } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Container } from './Allcourcecss';
 import { FaBars } from 'react-icons/fa'
 import Sidebar from '../../Component/Sidebar/Sidebar';
 import Search from '../../Component/search/search';
 import './Allcources.css'
 import Navbar from '../../Component/Navbar/Navbar'
+import Cources from '../../Component/Cources/Cources'
 import { useNavigate } from 'react-router';
+import axios from 'axios'
+import Footer from '../../Component/Footer/Footer';
 
 
 const Header = () => {
@@ -13,176 +16,126 @@ const Header = () => {
   const Nevigate = useNavigate();
   const showSiderbar = () => setSidebar(!sidebar)
 
+  const [courses, setcourses] = useState([]);
+  const [searchQuery, setSearchQuery] = useState('');
+
+
+  const navigate = useNavigate();
+
+
+  useEffect(() => {
+    axios.get('http://localhost:3002/fetchcourses')
+      .then((response) => {
+        setcourses(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching data:', error);
+      });
+  }, []);
+
+  function navigateOneCourse(courseTitle) {
+    navigate('/gotocourse', {
+      state: {
+        courseTitle,
+      }
+    });
+  }
+
+  const filteredcourses = courses.filter((item) => {
+    if (item.coursetitle) {
+      return item.coursetitle.toLowerCase().includes(searchQuery.toLowerCase()) || item.coursecategory.toLowerCase().includes(searchQuery.toLowerCase());
+    }
+    return false; // Return false if item.resname is undefined
+  });
+
   return (
     <>
       <Navbar></Navbar>
       <div className='allcources'>
 
-        <Container>
-          {/* <FaBars onClick={showSiderbar} /> */}
-          {sidebar && <Sidebar active={setSidebar} />}
-          <Search />
-        </Container>
+    
 
         <div className='All_courses' >
 
-          
-
-          <div className="course-cards" onClick={()=>Nevigate('abc')}>
-
-            <figure className="card-banner img-holder" style={{ height: "300px" }}>
-              <img src="images/course-1.jpg" loading="lazy"
-                alt="Build Responsive Real- World Websites with HTML and CSS" className="img-cover" />
-            </figure>
-
-            <div className="abs-badge">
-              <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
-
-              <span className="span">3 Weeks</span>
+        <div className='search' style={{ display: 'flex', justifyContent: 'center' }}>
+            <div className="search_box">
+              <input type="text" className="input_search" value={searchQuery}  onChange={(e) => setSearchQuery(e.target.value)} placeholder="Which cource are you looking for?" />
+              <div className="search_btn" ><i className="fas fa-search"></i></div>
             </div>
+          </div>
 
-            <div className="card-content">
+          <section className=" course" style={{ backgroundColor: 'white' }} id="" aria-label="course">
+            <div className="container">
 
-              <span className="badge">Beginner</span>
+              {/* <p className="section-subtitle">Popular Courses</p> */}
 
-              <h3 className="h3">
-                <a href="#" className="card-title">Build Responsive Real- World Websites with HTML and CSS</a>
-              </h3>
+              <h2 className="h2 section-title">Pick A Course To Get Started</h2>
 
-              <div className="wrapper">
+              <ul className="grid-list">
 
+                {filteredcourses.map((item, index) => (
 
+                  <li style={{ boxShadow: 'rgba(0, 0, 0, 0.15) 0px 3px 3px 0px' }}>
+                    <div className="course-card" onClick={() => navigateOneCourse(item.coursetitle)}>
 
-                <p className="rating-text">(5.0/7 Rating)</p>
+                      <figure className="card-banner img-holder" style={{ height: "300px" }}>
+                        <img src="images/course-1.jpg" loading="lazy"
+                          alt="Build Responsive Real- World Websites with HTML and CSS" className="img-cover" />
+                      </figure>
 
-              </div>
+                      <div className="abs-badge">
+                        <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
 
-              <data className="price" value="29">$29.00</data>
+                        <span className="span">{item.courseduration} hours</span>
+                      </div>
 
-              <ul className="card-meta-list">
+                      <div className="card-content">
 
-                <li className="card-meta-item">
-                  <ion-icon name="library-outline" aria-hidden="true"></ion-icon>
+                        <span className="badge">{item.courselevel}</span>
 
-                  <span className="span">8 Lessons</span>
-                </li>
+                        <h3 className="h3">
+                          <a className="card-title">{item.coursetitle}</a>
+                        </h3>
 
-                {/* <li className="card-meta-item">
-                  <ion-icon name="people-outline" aria-hidden="true"></ion-icon>
+                        <div className="wrapper">
 
-                  <span className="span">20 Students</span>
-                </li> */}
+                        </div>
+
+                        <data className="price" value="29">₹{item.courseprice} only</data>
+
+                        <ul className="card-meta-list">
+
+                          <li className="card-meta-item">
+                            <ion-icon name="library-outline" aria-hidden="true"></ion-icon>
+
+                            <span className="span">{item.coursevideocount} videos</span>
+                          </li>
+
+                        </ul>
+
+                      </div>
+
+                    </div>
+                  </li>
+                ))}
+
 
               </ul>
 
-            </div>
-          </div>
-          <div className="course-cards" onClick={()=>Nevigate('abc')}>
+              {/* <a href="/cource" className="btn has-before">
+                <span className="span">Browse more courses</span>
 
-            <figure className="card-banner img-holder" style={{ height: "300px" }}>
-              <img src="images/course-1.jpg" loading="lazy"
-                alt="Build Responsive Real- World Websites with HTML and CSS" className="img-cover" />
-            </figure>
-
-            <div className="abs-badge">
-              <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
-
-              <span className="span">3 Weeks</span>
-            </div>
-
-            <div className="card-content">
-
-              <span className="badge">Beginner</span>
-
-              <h3 className="h3">
-                <a href="#" className="card-title">Build Responsive Real- World Websites with HTML and CSS</a>
-              </h3>
-
-              <div className="wrapper">
-
-
-
-                <p className="rating-text">(5.0/7 Rating)</p>
-
-              </div>
-
-              <data className="price" value="29">$29.00</data>
-
-              <ul className="card-meta-list">
-
-                <li className="card-meta-item">
-                  <ion-icon name="library-outline" aria-hidden="true"></ion-icon>
-
-                  <span className="span">8 Lessons</span>
-                </li>
-
-                {/* <li className="card-meta-item">
-                  <ion-icon name="people-outline" aria-hidden="true"></ion-icon>
-
-                  <span className="span">20 Students</span>
-                </li> */}
-
-              </ul>
+                <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+              </a> */}
 
             </div>
+          </section>
 
-          </div>
-          <div className="course-cards" onClick={()=>Nevigate('abc')}>
-
-            <figure className="card-banner img-holder" style={{ height: "300px" }}>
-              <img src="images/course-1.jpg" loading="lazy"
-                alt="Build Responsive Real- World Websites with HTML and CSS" className="img-cover" />
-            </figure>
-
-            <div className="abs-badge">
-              <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
-
-              <span className="span">3 Weeks</span>
-            </div>
-
-            <div className="card-content">
-
-              <span className="badge">Beginner</span>
-
-              <h3 className="h3">
-                <a href="#" className="card-title">Build Responsive Real- World Websites with HTML and CSS</a>
-              </h3>
-
-              <div className="wrapper">
-
-
-
-                <p className="rating-text">(5.0/7 Rating)</p>
-
-              </div>
-
-              <data className="price" value="29">$29.00</data>
-
-              <ul className="card-meta-list">
-
-                <li className="card-meta-item">
-                  <ion-icon name="library-outline" aria-hidden="true"></ion-icon>
-
-                  <span className="span">8 Lessons</span>
-                </li>
-
-                {/* <li className="card-meta-item">
-                  <ion-icon name="people-outline" aria-hidden="true"></ion-icon>
-
-                  <span className="span">20 Students</span>
-                </li> */}
-
-              </ul>
-
-            </div>
-
-          </div>
-        
 
         </div>
-        </div>
-      </>
-      )
+      </div>
+    </>
+  )
 }
 
-      export default Header;
+export default Header;

@@ -26,7 +26,7 @@ function CategorySection() {
                                     Lorem ipsum dolor consec tur elit adicing sed umod tempor.
                                 </p> */}
                                 <br/>
-                                <span className="card-badge" style={{ backgroundColor: 'hsl(170, 75%, 81%)', color: 'hsl(170, 75%, 41%)' }}>0 Courses</span>
+                                <span className="card-badge" style={{ backgroundColor: 'hsl(170, 75%, 81%)', color: 'hsl(170, 75%, 41%)' }}>1 Courses</span>
                             </div>
                         </li>
                         <li>
@@ -41,7 +41,7 @@ function CategorySection() {
                                     Lorem ipsum dolor consec tur elit adicing sed umod tempor.
                                 </p> */}
                                 <br/>
-                                <span className="card-badge" style={{ backgroundColor: 'hsl(351, 83%, 85%)', color: 'hsl(351, 83%, 61%)' }}>0 Courses</span>
+                                <span className="card-badge" style={{ backgroundColor: 'hsl(351, 83%, 85%)', color: 'hsl(351, 83%, 61%)' }}>1 Courses</span>
                             </div>
                         </li>
                         <li>
@@ -56,7 +56,7 @@ function CategorySection() {
                                     Lorem ipsum dolor consec tur elit adicing sed umod tempor.
                                 </p> */}
                                 <br/>
-                                <span className="card-badge" style={{ backgroundColor: 'hsl(229, 75%, 85%)', color: 'hsl(229, 75%, 61%)' }}>0 Courses</span>
+                                <span className="card-badge" style={{ backgroundColor: 'hsl(229, 75%, 85%)', color: 'hsl(229, 75%, 61%)' }}>1 Courses</span>
                             </div>
                         </li>
                         <li>

@@ -48,7 +48,6 @@ const Studentsuggetion = () => {
       <div className="start" style={{ display: 'flex', justifyContent: 'center' }}>
         <form action="#" className="form">
           <h1>Suggest any topic</h1>
-
           <div className="input-box">
             <h3>Title of your topic</h3>
             <input
@@ -68,6 +67,16 @@ const Studentsuggetion = () => {
               style={{ width: '100%' }}
               placeholder="Please provide the necessary topic description below."
             />
+             <h3>Category of your Suggetion</h3>
+            <div className="select-box" >
+              <select name='suggetioncategory' onChange={handleForm} style={{fontSize:'13px'}}>
+                <option hidden >Category</option>
+                <option value='Devops'>Devops</option>
+                <option value='Development'>Development</option>
+                <option value='Cyber Security'>Cyber Security</option>
+                <option value='Data Science'>Data Science</option>
+              </select>
+            </div>
             <br />
           </div>
           <button

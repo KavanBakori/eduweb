@@ -19,11 +19,11 @@ const AllSuggestions = ({email}) => {
   }, []);
 
 
-  const handlepick = async (topicname, topicdes, email) => {
+  const handlepick = async (topicname, topicdes,suggetioncategory, email) => {
     try {
       const pick = await fetch('http://localhost:3002/picked', {
         method: 'POST',
-        body: JSON.stringify({"topicname":topicname, "topicdes":topicdes, "Educatoremail":email}),
+        body: JSON.stringify({"topicname":topicname, "topicdes":topicdes,"suggetioncategory":suggetioncategory, "Educatoremail":email}),
         headers: {
           'Content-Type': 'application/json',
         },
@@ -45,27 +45,18 @@ const AllSuggestions = ({email}) => {
   return (
     <>
     <Navbar/>
-    <div className='tab'>
-      <table>
-        <thead>
-          <tr>
-            <th>Name of the Topic</th>
-            <th>Description of the Topic</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          {suggestions.map((item, index) => (
-            <tr key={index}>
-              <td>{item.topicname}</td>
-              <td>{item.topicdes}</td>
-              <td><button onClick={() => handlepick(item.topicname, item.topicdes, email)}  style={{margin:'auto',backgroundColor:'orange',paddingInline:'40px',paddingTop:'6px',paddingBottom:'6px',borderRadius:'10px',color:'white'}}>Pick</button></td>
-              {/* Add more table cells for your data */}
-            </tr>
-          ))}
-        </tbody>
-      </table>
+    <div className='card-container' style={{display:'flex',flexDirection:'column',rowGap:'20px'}}>
+  {suggestions.map((item, index) => (
+    <div className='' style={{display:'flex', flexDirection:'column',padding:'10px',height:'auto', width:'100%',borderRadius:'5px', boxShadow: 'rgba(0, 0, 0, 0.09) 0px 1px 5px'}} key={index}>
+      <h2>{item.topicname}</h2>
+      <h3 style={{color:'#1AB79D'}}>Category: {item.suggetioncategory}</h3>
+      <p>{item.topicdes}</p>
+      <br />
+      <button style={{backgroundColor:'#f8b720',width:'160px'}} onClick={() => handlepick(item.topicname, item.topicdes,item.suggetioncategory, email)}>Pick</button>
     </div>
+  ))}
+</div>
+
     </>
   );
 };
