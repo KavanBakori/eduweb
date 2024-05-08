@@ -51,15 +51,23 @@ const Header = () => {
   return (
     <>
       <Navbar></Navbar>
+      <div className="container" style={{ marginTop: '100px' }}>
+
+        {/* <p className="section-subtitle">Popular Courses</p> */}
+
+        <h2 className="h2 section-title">Pick A Course To Get Started</h2>
+
+     
+      </div>
       <div className='allcources'>
 
-    
+
 
         <div className='All_courses' >
 
-        <div className='search' style={{ display: 'flex', justifyContent: 'center' }}>
+          <div className='search' style={{ display: 'flex', justifyContent: 'center',marginTop:'50px' }}>
             <div className="search_box">
-              <input type="text" className="input_search" value={searchQuery}  onChange={(e) => setSearchQuery(e.target.value)} placeholder="Which cource are you looking for?" />
+              <input type="text" className="input_search" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} placeholder="Which cource are you looking for?" />
               <div className="search_btn" ><i className="fas fa-search"></i></div>
             </div>
           </div>
@@ -69,7 +77,7 @@ const Header = () => {
 
               {/* <p className="section-subtitle">Popular Courses</p> */}
 
-              <h2 className="h2 section-title">Pick A Course To Get Started</h2>
+              {/* <h2 className="h2 section-title">Pick A Course To Get Started</h2> */}
 
               <ul className="grid-list">
 

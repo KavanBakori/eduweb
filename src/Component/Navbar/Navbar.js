@@ -60,7 +60,7 @@ const Header = () => {
             </li>
 
             <li className="navbar-item">
-              <a href="/cource" className="navbar-link" data-nav-link>Courses</a>
+              <a href="/course" className="navbar-link" data-nav-link>Courses</a>
             </li>
 
             <li className="navbar-item">

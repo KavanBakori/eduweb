@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import Card from '../../Component/Cource_One_Video/Cource_One_Video';
 import Footer from '../../Component/Footer/Footer';
 import Navbar from '../../Component/Navbar/Navbar';
-import FAQ from '../../Component/FAQ/Faq';
 import { useLocation } from 'react-router-dom';
 import './Cource.css';
 import axios from 'axios';
@@ -46,6 +45,7 @@ const Cource = () => {
                     <div className='content_course'>
                         <div className='left'>
                             <h1 style={{ color: 'black', borderRadius: '10px', width: '100%', padding: '10px' }}>{courseTitle}</h1>
+                            <hr />
                             <div className='desc' >
                                 {item.coursedes}
                             </div>
@@ -105,7 +105,7 @@ const Cource = () => {
 
 
                 <div className='all_videoes'>
-                    <h2 className='title_heading'>All Videoes</h2>
+                    <h2 className='title_heading'>All Videos</h2>
                     <div className='all_cource_video'>
                         {category === "Devops" && (
                             <>
@@ -193,10 +193,8 @@ const Cource = () => {
                         )}
                     </div>
                 </div>
-
-
             </div>
-            <FAQ></FAQ>
+            <br /><br />
             <Footer></Footer>
         </div>
     ])

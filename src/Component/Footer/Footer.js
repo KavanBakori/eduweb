@@ -39,19 +39,19 @@ function Footer  () {
     <ul class="footer-list">
 
       <li>
-        <p class="footer-list-title">Online Platform</p>
+        <p class="footer-list-title">Quick Links</p>
       </li>
 
       <li>
-        <a href="#about" class="footer-link">About</a>
+        <a href="/about" class="footer-link">About</a>
       </li>
 
       <li>
-        <a href="#courses" class="footer-link">Courses</a>
+        <a href="/course" class="footer-link">Courses</a>
       </li>
 
       <li>
-        <a href="#" class="footer-link">Instructor Profile</a>
+        <a href="https://dev-gpoz1h4sm8td85xv.us.auth0.com/login?state=hKFo2SB4aGFwNE5zcnZiY3hqWFFickZObFZEUWdDZkdfODhKcqFupWxvZ2luo3RpZNkgN2NrWURpdTFfWmxOLU5jc1d1Sm1kUVhBczE2Q3U0b2GjY2lk2SAzMlI3bU1Sck51VnowWm5uWWRYdjdwbnpka3RVRnNNRw&client=32R7mMRrNuVz0ZnnYdXv7pnzdktUFsMG&protocol=oauth2&scope=openid%20profile%20email&redirect_uri=http%3A%2F%2Flocalhost%3A3000&response_type=code&response_mode=query&nonce=UlFGR1drQlNxbnJuN2NaME1tTUdkM0FBT09ockFWN1VPTzhMV1BERG5FTQ%3D%3D&code_challenge=60nYpVFL14LqRVuaPtNvfCTsYH0qrKAiMnsCxFj25A4&code_challenge_method=S256&auth0Client=eyJuYW1lIjoiYXV0aDAtcmVhY3QiLCJ2ZXJzaW9uIjoiMi4yLjQifQ%3D%3D" class="footer-link">Login / SignUp</a>
       </li>
 
       {/* <li>
@@ -71,40 +71,33 @@ function Footer  () {
     <ul class="footer-list">
 
       <li>
-        <p class="footer-list-title">Links</p>
+        <p class="footer-list-title">Connect with us</p>
       </li>
 
-      {/* <li>
-        <a href="#" class="footer-link">Contact Us</a>
-      </li> */}
-
-      {/* <li>
-        <a href="#" class="footer-link">Gallery</a>
-      </li> */}
 
       <li>
-        <a href="#" class="footer-link">FAQ's</a>
+        <a href="#" class="footer-link">Instagram</a>
       </li>
 
       <li>
-        <a href="#" class="footer-link">Sign In/Registration</a>
+        <a href="#" class="footer-link">LinkedIn</a>
       </li>
-
+      
       <li>
-        <a href="#" class="footer-link">Coming Soon</a>
+        <a href="#" class="footer-link">Facebook</a>
       </li>
 
     </ul>
 
     <div class="footer-list">
 
-      <p class="footer-list-title">Contacts</p>
+      <p class="footer-list-title">Send your suggestion</p>
 
-      <p class="footer-list-text">
+      {/* <p class="footer-list-text">
         Send your suggestion
-      </p>
+      </p> */}
 
-      <form action="" class="newsletter-form">
+      {/* <form action="" class="newsletter-form">
         <input type="text" name="email_address" placeholder="Your suggestion" required class="input-field"/>
 
         <button type="submit" class="btn has-before">
@@ -112,41 +105,47 @@ function Footer  () {
 
           <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
         </button>
-      </form>
+      </form> */}
 
-      <ul class="social-list">
+      <ul>
+      <li>
+        <a href="mailto:kavanbakori111@gmail.com" class="footer-link">Gmail</a>
+      </li>
+      </ul>
+
+      {/* <ul class="social-list">
 
         <li>
           <a href="#" class="social-link">
-            <ion-icon name="logo-facebook"></ion-icon>
+            <ion-icon name="logo-mail"></ion-icon>
           </a>
         </li>
 
         <li>
           <a href="#" class="social-link">
-            <ion-icon name="logo-linkedin"></ion-icon>
+            <ion-icon name="logo-discord"></ion-icon>
           </a>
         </li>
 
         <li>
-          <a href="#" class="social-link">
-            <ion-icon name="logo-instagram"></ion-icon>
-          </a>
-        </li>
-
-        {/* <li>
           <a href="#" class="social-link">
             <ion-icon name="logo-twitter"></ion-icon>
           </a>
-        </li> */}
+        </li>
 
-        {/* <li>
+        <li>
+          <a href="#" class="social-link">
+            <ion-icon name="logo-twitter"></ion-icon>
+          </a>
+        </li>
+
+         <li>
           <a href="#" class="social-link">
             <ion-icon name="logo-youtube"></ion-icon>
           </a>
-        </li> */}
+        </li> 
 
-      </ul>
+      </ul> */}
 
     </div>
 

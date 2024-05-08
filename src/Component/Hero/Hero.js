@@ -19,7 +19,7 @@ const Hero = () => {
            Engaging animations, interactive visuals, personalized pacing for better learning.
           </p>
 
-          <a onClick={navigate('/cource')} href='#/' alt='' className="btn has-before">
+          <a onClick={navigate('/course')} href='#/' alt='' className="btn has-before">
             <span className="span">Find Cources</span>
 
             <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
