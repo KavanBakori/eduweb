@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import Card from '../../Component/Cource_One_Video/Cource_One_Video';
 import Footer from '../../Component/Footer/Footer';
 import Navbar from '../../Component/Navbar/Navbar';
-import FAQ from '../../Component/FAQ/Faq';
 import { useLocation } from 'react-router-dom';
 import './Cource.css';
 import axios from 'axios';
@@ -197,7 +196,6 @@ const Cource = () => {
 
 
             </div>
-            <FAQ></FAQ>
             <Footer></Footer>
         </div>
     ])

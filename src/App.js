@@ -29,7 +29,7 @@ function App() {
           <Route path='/courseupload' element={<Courseupload />} />
           <Route path='/about' element={<Aboutus />} />
           <Route path='/videos' element={<Video/>} />
-          <Route path='/cource' element={<Allcource></Allcource>} />
+          <Route path='/course' element={<Allcource></Allcource>} />
           <Route path='/gotocourse' element={<Cource></Cource>} />
           <Route path='/contact' element={<Contact></Contact>}></Route>
           {/* <Route path='/cource/development' element={<Science></Science>} />

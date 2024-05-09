@@ -368,7 +368,7 @@ const Uploadvideo = ({ email }) => {
               <h3>Duration of Video</h3>
               <input type="number" name='topictime' onChange={handleform} style={{ width: '97%' }} placeholder="in minutes" />
               <br />
-              <h3>Category of your Course</h3>
+              <h3>Category of your video</h3>
               <div className="select-box" >
                 <select name='videocategory' onChange={handleform} style={{ fontSize: '13px' }}>
                   <option hidden >Category</option>

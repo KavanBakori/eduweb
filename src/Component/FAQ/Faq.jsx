@@ -83,7 +83,7 @@ const FaqsSection = () => {
   ];
 
   return (
-    <section className="faq-section leading-relaxed max-w-screen-xl mt-12 mx-auto px-4 md:px-8 faq_font" style={{marginTop:'50px'}}>
+    <section className="faq-section leading-relaxed max-w-screen-xl  mx-auto px-4 md:px-8 faq_font" >
       
         <h1 className="title_heading_faq">
           Frequently Asked Questions
