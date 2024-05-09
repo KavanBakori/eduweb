@@ -7,6 +7,7 @@ import Category from '../../Component/Category/Category';
 import Blog from '../../Component/Blog/Blog';
 import About from '../../Component/About/About';
 import Cources from '../../Component/Cources/Cources';
+import FaqsCard from '../../Component/FAQ/Faq';
 
 
 function Home() {
@@ -19,6 +20,7 @@ function Home() {
       <Cources />
       <State />
       {/* <Blog /> */}
+      <FaqsCard/>
       <Footer />
     </>
   )

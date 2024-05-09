@@ -61,29 +61,29 @@ const FaqsCard = (props) => {
 const FaqsSection = () => {
   const faqsList = [
     {
-      q: "What are some random questions to ask?",
-      a: "That's exactly the reason we created this random question generator. There are hundreds of random questions to choose from so you're able to find the perfect random question."
+      q: "What is AniLearn?",
+      a: "AniLearn is an online platform offering visual learning videos. Students can suggest topics, and educators create videos based on those suggestions."
     },
     {
-      q: "Do you include common questions?",
-      a: "This generator doesn't include most common questions. The thought is that you can come up with common questions on your own so most of the questions in this generator."
+      q: "How does AniLearn work?",
+      a: "Students submit topic suggestions, and educators create video content based on those suggestions. The platform serves as a collaborative space for learning through visual content."
     },
     {
-      q: "Can I use this for 21 questions?",
-      a: "Yes! there are two ways that you can use this question generator depending on what you're after. You can indicate that you want 21 questions generated."
+      q: "What kind of subjects does AniLearn specialize in?",
+      a: "AniLearn specializes in subjects like development, DevOps, cybersecurity, and data science, providing in-depth visual learning resources for each."
     },
     {
-      q: "Are these questions for girls or for boys?",
-      a: "The questions in this generator are gender neutral and can be used to ask either male of females (or any other gender the person identifies with)."
+      q: "Can I find beginner-level content on AniLearn?",
+      a: "Yes, AniLearn offers content tailored for beginners in each subject area, providing foundational knowledge and gradually progressing to more advanced topics."
     },
     {
-      q: "What do you wish you had more talent doing?",
-      a: "If you've been searching for a way to get random questions, you've landed on the correct webpage. We created the Random Question Generator to ask you as many random questions as your heart desires."
+      q: "Are AniLearn videos accessible to everyone?",
+      a: "Yes, AniLearn videos are accessible to all registered users. Whether you're a student seeking knowledge or an educator sharing expertise, you can benefit from the platform's resources."
     }
   ];
 
   return (
-    <section className="faq-section leading-relaxed max-w-screen-xl  mx-auto px-4 md:px-8 faq_font" >
+    <section className="faq-section leading-relaxed max-w-screen-xl mt-12 mx-auto px-4 md:px-8 faq_font" >
       
         <h1 className="title_heading_faq">
           Frequently Asked Questions
