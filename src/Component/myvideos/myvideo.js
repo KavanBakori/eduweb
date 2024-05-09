@@ -25,12 +25,12 @@ function Myvideos({ email }) {
                     video.filter((item) => item.videoemail === email).map((item) => {
                         return (
 
-                            <div class="" style={{ maxWidth: '40rem', boxShadow: 'rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px', borderRadius: '10px', display: 'flex', flexDirection: 'column', padding: '10px', height: 'auto' }}>
+                            <div class="" style={{ maxWidth: '40rem', boxShadow: 'rgba(149, 157, 165, 0.2) 0px 8px 24px', borderRadius: '10px', display: 'flex', flexDirection: 'column', padding: '10px', height: 'auto' }}>
                                 <video src={item.secure_url} class="card-img-top" controls></video>
                                 <div class="card-body">
-                                    <h5 class="card-title" style={{ fontSize: '1.5em', color: 'hsl(170, 75%, 41%)' }}>{item.topicname}</h5>
+                                    <h5 class="card-title" style={{ fontSize: '1.5em', color: 'orange' }}>{item.topicname}</h5>
                                     <p class="card-text">{item.topicdes}</p>
-                                    <p class="card-text" style={{ color: 'orange' }}>Duration : {item.topictime} min</p>
+                                    <p class="card-text" style={{ color: 'hsl(170, 75%, 41%)' }}>Duration : {item.topictime} min</p>
                                 </div>
                             </div>
                         );

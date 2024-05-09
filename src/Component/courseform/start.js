@@ -11,6 +11,8 @@ function Start({ email }) {
   const [form, setForm] = useState([]);
   const [value, setvalue] = useState([]);
   const [thumbnail, setthumbnail] = useState(null);
+  const [thumbnail_url, setthumbnailurl] = useState("");
+
   const handleform = (e) => {
     setForm({
       ...form,
@@ -36,11 +38,13 @@ function Start({ email }) {
       console.log(res);
       const { secure_url } = res.data;
       console.log(secure_url);
+      setthumbnailurl(secure_url);
       console.log('image upload complete');
     } catch (error) {
       console.log(error);
     }
   }
+
   const handleFileChange = (event) => {
     handleFileChange_thubnil();
     const selectedFile = event.target.files[0];
@@ -74,7 +78,7 @@ function Start({ email }) {
     try {
       const sendvideo = await fetch('http://localhost:3002/courseupload', {
         method: 'POST',
-        body: JSON.stringify({ secure_url, email, ...form }), // Spread the 'form' object
+        body: JSON.stringify({ secure_url,thumbnail_url, email, ...form }), // Spread the 'form' object
         headers: { 'Content-Type': 'application/json' },
       });
       console.log(sendvideo);
