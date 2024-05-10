@@ -108,6 +108,9 @@ const uploadcourseschema = new Schema({
     secure_url:{
         type :String ,
     },
+    thumbnail_url:{
+        type :String ,
+    },
     courseemail:{
         type:String,
     }, 

@@ -58,6 +58,7 @@ function Video() {
                     filteredvideo.map((item) => {
                         return (
 
+<<<<<<< HEAD
                             <>
                                 <div className="" style={{ maxWidth: '40rem', boxShadow: 'rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px', borderRadius: '10px', display: 'flex', flexDirection: 'column', padding: '10px', height: 'auto' }}>
                                     <video src={item.secure_url} className="card-img-top" controls></video>
@@ -67,6 +68,16 @@ function Video() {
                                         <p className="card-text" style={{ fontWeight: 'bold' }} >Creator : {item.videoemail}</p>
                                         <p className="card-text" style={{ color: '#1AB79D' }}>Duration : {item.topictime} min</p>
                                     </div>
+=======
+                        <>
+                        <div className="" style={{  maxWidth: '40rem', boxShadow: 'rgba(149, 157, 165, 0.2) 0px 8px 24px',borderRadius:'10px', display: 'flex', flexDirection: 'column', padding: '10px', height: 'auto' }}>
+                                <video src={item.secure_url} className="card-img-top" controls></video>
+                                <div className="card-body">
+                                    <h5 className="card-title" style={{ fontSize: '1.5em', color: 'orange' }}>{item.topicname}</h5>
+                                    <p className="card-text">{item.topicdes}</p>
+                                    <p className="card-text" style={{fontWeight:'bold'}} >Creator : {item.videoemail}</p>
+                                    <p className="card-text" style={{color: '#1AB79D' }}>Duration : {item.topictime} min</p>
+>>>>>>> kavan
                                 </div>
                             </>
 

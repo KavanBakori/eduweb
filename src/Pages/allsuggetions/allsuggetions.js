@@ -48,8 +48,8 @@ const AllSuggestions = ({email}) => {
     <div className='card-container' style={{display:'flex',flexDirection:'column',rowGap:'20px'}}>
   {suggestions.map((item, index) => (
     <div className='' style={{display:'flex', flexDirection:'column',padding:'10px',height:'auto', width:'100%',borderRadius:'5px', boxShadow: 'rgba(0, 0, 0, 0.09) 0px 1px 5px'}} key={index}>
-      <h2>{item.topicname}</h2>
-      <h3 style={{color:'#1AB79D'}}>Category: {item.suggetioncategory}</h3>
+      <h2 style={{color:'black'}}>{item.topicname}</h2>
+      <h4 style={{color:'#1AB79D'}}>Category: {item.suggetioncategory}</h4>
       <p>{item.topicdes}</p>
       <br />
       <button style={{backgroundColor:'#f8b720',width:'160px'}} onClick={() => handlepick(item.topicname, item.topicdes,item.suggetioncategory, email)}>Pick</button>

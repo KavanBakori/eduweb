@@ -45,8 +45,8 @@ const Cources = () => {
         <li style={{backgroundColor:'white',boxShadow:'rgba(0, 0, 0, 0.45) 0px 25px 20px -20px'}}>
           <div className="course-card" onClick={()=>navigateOneCourse(item.coursetitle)}>
 
-            <figure className="card-banner img-holder" style={{height: "300px"}}>
-              <img src="images/course-1.jpg" loading="lazy"
+            <figure className="card-banner img-holder" style={{height: "auto"}}>
+              <img src={item.thumbnail_url} loading="lazy" style={{height:'auto'}}
                 alt="Build Responsive Real- World Websites with HTML and CSS" className="img-cover"/>
             </figure>
 

@@ -103,8 +103,8 @@ const Header = () => {
               {isDropdownOpen && (
                 <div className="dropdown-content">
                   <p style={{textAlign:'center'}}>Welcome, {user?.name}</p>
-                  <a onClick={nav}>My Profile</a>
-                  <a href="/" onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>Sign Out</a>
+                  <a onClick={nav} style={{cursor:'pointer'}}>My Profile</a>
+                  <a href="/" style={{cursor:'pointer'}} onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>Sign Out</a>
                 </div>
               )}
             </div> :<button style={{backgroundColor:'#1AB79D',paddingInline:'40px',paddingTop:'10px',paddingBottom:'10px',borderRadius:'10px',color:'white'}} onClick={() => loginWithRedirect()}>Try for free</button>

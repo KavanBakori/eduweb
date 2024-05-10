@@ -25,7 +25,11 @@ function Myvideos({ email }) {
                     video.filter((item) => item.videoemail === email).map((item) => {
                         return (
 
+<<<<<<< HEAD
                             <div class="" style={{ maxWidth: '40rem', boxShadow: 'rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px', borderRadius: '10px', display: 'flex', flexDirection: 'column', padding: '10px', height: 'auto' }}>
+=======
+                            <div class="" style={{ maxWidth: '40rem', boxShadow: 'rgba(149, 157, 165, 0.2) 0px 8px 24px', borderRadius: '10px', display: 'flex', flexDirection: 'column', padding: '10px', height: 'auto' }}>
+>>>>>>> kavan
                                 <video src={item.secure_url} class="card-img-top" controls></video>
                                 <div class="card-body">
                                     <h5 class="card-title" style={{ fontSize: '1.5em', color: 'orange' }}>{item.topicname}</h5>

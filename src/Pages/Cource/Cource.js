@@ -44,8 +44,13 @@ const Cource = () => {
 
                     <div className='content_course'>
                         <div className='left'>
+<<<<<<< HEAD
                             <h1 style={{ color: 'black', borderRadius: '10px', width: '100%', padding: '10px' }}>{courseTitle}</h1>
                             <hr />
+=======
+                            <h1 style={{ color: 'black', borderRadius: '10px', width: '100%' }}>{courseTitle}</h1>
+                            <p style={{color:'#002fa7'}}>Uploaded by: {item.courseemail}</p>
+>>>>>>> kavan
                             <div className='desc' >
                                 {item.coursedes}
                             </div>
@@ -194,7 +199,10 @@ const Cource = () => {
                     </div>
                 </div>
             </div>
+<<<<<<< HEAD
             <br /><br />
+=======
+>>>>>>> kavan
             <Footer></Footer>
         </div>
     ])

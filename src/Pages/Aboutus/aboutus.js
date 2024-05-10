@@ -7,12 +7,19 @@ const Aboutus = () => {
     return (
         <>
             <Navbar />
+<<<<<<< HEAD
             <div style={{ marginTop: '30px' }}>
                 <About />
             </div>
             <div style={{marginTop:'-100px'}}>
             <FaqsCard/>
             </div>
+=======
+            <div >
+                <About />
+            </div>
+            <FaqsCard/>
+>>>>>>> kavan
             <Footer></Footer>
         </>
     );
