@@ -143,7 +143,7 @@ const Promovideoupload = ({ email }) => {
         if (!secure_url) { alert('reupload video'); return; }
         console.log(secure_url);
         setsecure_url(secure_url);
-        alert("Hello")
+        // alert("Hello")
         console.log(secure_url);
       } catch (error) {
         console.error("Error uploading file:", error);
